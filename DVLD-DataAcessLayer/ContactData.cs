@@ -182,6 +182,8 @@ namespace ContactsDataAccessLayer
             return (rowsAffected > 0);
         }
 
+
+
         public static DataTable GetAllContacts()
         {
 

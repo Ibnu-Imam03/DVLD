@@ -23,5 +23,11 @@ namespace DVLD
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form ManagePeople = new ManagePeople();
+            ManagePeople.Show();
+        }
     }
 }
