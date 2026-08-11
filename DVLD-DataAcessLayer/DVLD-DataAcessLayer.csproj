@@ -152,6 +152,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsDataAccessSettings.cs" />
+    <Compile Include="ContactData.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

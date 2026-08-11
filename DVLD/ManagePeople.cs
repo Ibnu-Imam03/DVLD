@@ -16,5 +16,15 @@ namespace DVLD
         {
             InitializeComponent();
         }
+
+        private void ManagePeople_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void userPeopleList1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
