@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="DVLD-BusinessLayer/DVLD-BusinessLayer.csproj" />
+  <Project Path="DVLD-DataAcessLayer/DVLD-DataAcessLayer.csproj" />
   <Project Path="DVLD/DVLD-PresentationLayer.csproj" />
 </Solution>
