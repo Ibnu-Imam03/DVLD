@@ -19,10 +19,7 @@ namespace DVLD_BusinessLayer
         {
             return clsPeopleDataAcess.GetPeopleBy(Column, Data);
         }
-        public static DataTable GetPersonByDAte(string Column, DateTime Data)
-        {
-            return clsPeopleDataAcess.GetPeopleByDate(Column, Data);
-        }
+      
 
 
         
