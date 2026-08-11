@@ -10,5 +10,21 @@ namespace DVLD_BusinessLayer
         {
             return clsPeopleDataAcess.GetAllPeople();
         }
+
+        public static DataTable GetPerson(string Column , string Data)
+        {
+            return clsPeopleDataAcess.GetPeopleBy(Column , Data);
+        }
+        public static DataTable GetPerson(string Column, int Data)
+        {
+            return clsPeopleDataAcess.GetPeopleBy(Column, Data);
+        }
+        public static DataTable GetPersonByDAte(string Column, DateTime Data)
+        {
+            return clsPeopleDataAcess.GetPeopleByDate(Column, Data);
+        }
+
+
+        
     }
 }

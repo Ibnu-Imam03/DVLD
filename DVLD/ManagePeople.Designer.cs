@@ -34,12 +34,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dgvManage_People = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbFilter = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.button2 = new System.Windows.Forms.Button();
+            this.txtFilter = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManage_People)).BeginInit();
             this.SuspendLayout();
@@ -86,13 +87,15 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Filter By : ";
             // 
-            // comboBox1
+            // cbFilter
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(84, 148);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
+            this.cbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilter.FormattingEnabled = true;
+            this.cbFilter.Location = new System.Drawing.Point(84, 148);
+            this.cbFilter.Name = "cbFilter";
+            this.cbFilter.Size = new System.Drawing.Size(121, 21);
+            this.cbFilter.TabIndex = 4;
+            this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -104,15 +107,15 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "# Recoerds : ";
             // 
-            // label5
+            // lblTotal
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(106, 342);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(15, 16);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "0";
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(106, 342);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(15, 16);
+            this.lblTotal.TabIndex = 6;
+            this.lblTotal.Text = "0";
             // 
             // button1
             // 
@@ -149,15 +152,25 @@
             this.button2.Text = "Close";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txtFilter
+            // 
+            this.txtFilter.Location = new System.Drawing.Point(212, 148);
+            this.txtFilter.Name = "txtFilter";
+            this.txtFilter.Size = new System.Drawing.Size(125, 20);
+            this.txtFilter.TabIndex = 9;
+            this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
             // 
             // ManagePeople
             // 
             this.ClientSize = new System.Drawing.Size(962, 404);
+            this.Controls.Add(this.txtFilter);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbFilter);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dgvManage_People);
             this.Controls.Add(this.label2);
@@ -184,11 +197,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvManage_People;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbFilter;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtFilter;
     }
 }
