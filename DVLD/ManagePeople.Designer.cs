@@ -41,6 +41,7 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.txtFilter = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManage_People)).BeginInit();
             this.SuspendLayout();
@@ -163,6 +164,12 @@
             this.txtFilter.TabIndex = 9;
             this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
             // ManagePeople
             // 
             this.ClientSize = new System.Drawing.Size(962, 404);
@@ -205,5 +212,6 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtFilter;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

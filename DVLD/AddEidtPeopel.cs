@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace DVLD
 {
-    public partial class PeopleInfo : UserControl
+    public partial class AddEidtPeopel : Form
     {
-        public PeopleInfo()
+        public AddEidtPeopel()
         {
             InitializeComponent();
-        }
-
-        public void PeopleInfo_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

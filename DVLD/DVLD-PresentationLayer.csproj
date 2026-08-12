@@ -167,6 +167,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEidtPeopel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEidtPeopel.Designer.cs">
+      <DependentUpon>AddEidtPeopel.cs</DependentUpon>
+    </Compile>
     <Compile Include="clsAdd\Edit.cs" />
     <Compile Include="DVLDDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
