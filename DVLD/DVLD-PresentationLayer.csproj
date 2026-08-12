@@ -167,6 +167,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsAdd\Edit.cs" />
     <Compile Include="DVLDDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -189,6 +190,12 @@
     <Compile Include="ManagePeople.Designer.cs">
       <DependentUpon>ManagePeople.cs</DependentUpon>
     </Compile>
+    <Compile Include="PeopleInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PeopleInfo.Designer.cs">
+      <DependentUpon>PeopleInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="PeopleManagment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManagePeople.resx">
       <DependentUpon>ManagePeople.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PeopleInfo.resx">
+      <DependentUpon>PeopleInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PeopleManagment.resx">
       <DependentUpon>PeopleManagment.cs</DependentUpon>
@@ -257,8 +267,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\add-user.png" />
+    <None Include="Resources\diskette.png" />
+    <None Include="Resources\country.png" />
+    <None Include="Resources\phone-call.png" />
+    <None Include="Resources\calendar.png" />
     <Content Include="Resources\close.png" />
     <Content Include="Resources\customer.png" />
+    <None Include="Resources\location.png" />
+    <None Include="Resources\email.png" />
+    <None Include="Resources\female-worker.png" />
+    <None Include="Resources\male.png" />
+    <None Include="Resources\id-card1.png" />
+    <None Include="Resources\profile %281%29.png" />
+    <None Include="Resources\id-card.png" />
     <None Include="Resources\customer1.png" />
     <Content Include="Resources\profile.png" />
     <Content Include="Resources\user %281%29.png" />
