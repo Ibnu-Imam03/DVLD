@@ -70,6 +70,9 @@ namespace DVLD_BusinessLayer
             return false;
         }
 
-
+        public static bool IsNationalIDExist(string NID)
+        {
+            return clsPeopleDataAcess.IsNationalIDExist(NID);
+        }
     }
 }

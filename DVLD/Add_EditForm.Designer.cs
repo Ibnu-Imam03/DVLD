@@ -1,6 +1,6 @@
-﻿    namespace DVLD
+﻿namespace DVLD
 {
-    partial class AddEidtPeopel
+    partial class Add_EditForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.usPersonInfo1 = new DVLD.usPersonInfo();
             this.SuspendLayout();
             // 
-            // AddEidtPeopel
+            // usPersonInfo1
+            // 
+            this.usPersonInfo1.Location = new System.Drawing.Point(12, 12);
+            this.usPersonInfo1.Name = "usPersonInfo1";
+            this.usPersonInfo1.Size = new System.Drawing.Size(808, 361);
+            this.usPersonInfo1.TabIndex = 0;
+            // 
+            // Add_EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "AddEidtPeopel";
-            this.Text = "AddEidtPeopel";
+            this.ClientSize = new System.Drawing.Size(957, 450);
+            this.Controls.Add(this.usPersonInfo1);
+            this.Name = "Add_EditForm";
+            this.Text = "Add_EditForm";
+            this.Load += new System.EventHandler(this.Add_EditForm_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private usPersonInfo usPersonInfo1;
     }
 }

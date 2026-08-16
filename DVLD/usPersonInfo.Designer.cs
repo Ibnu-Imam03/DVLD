@@ -249,6 +249,7 @@
             this.txtNationalID.Name = "txtNationalID";
             this.txtNationalID.Size = new System.Drawing.Size(100, 20);
             this.txtNationalID.TabIndex = 47;
+            this.txtNationalID.Validating += new System.ComponentModel.CancelEventHandler(this.txtNationalID_Validating);
             // 
             // txtLastName
             // 
@@ -256,6 +257,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(100, 20);
             this.txtLastName.TabIndex = 46;
+            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtLastName_Validating);
             // 
             // txtSecoundName
             // 
@@ -263,6 +265,7 @@
             this.txtSecoundName.Name = "txtSecoundName";
             this.txtSecoundName.Size = new System.Drawing.Size(100, 20);
             this.txtSecoundName.TabIndex = 45;
+            this.txtSecoundName.Validating += new System.ComponentModel.CancelEventHandler(this.txtSecoundName_Validating);
             // 
             // txtThirdName
             // 
@@ -270,6 +273,7 @@
             this.txtThirdName.Name = "txtThirdName";
             this.txtThirdName.Size = new System.Drawing.Size(100, 20);
             this.txtThirdName.TabIndex = 44;
+            this.txtThirdName.Validating += new System.ComponentModel.CancelEventHandler(this.txtThirdName_Validating);
             // 
             // txtFirstName
             // 
@@ -278,6 +282,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtFirstName.TabIndex = 43;
+            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtFirstName_Validating);
             // 
             // label5
             // 

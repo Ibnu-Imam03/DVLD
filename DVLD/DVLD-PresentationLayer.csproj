@@ -173,11 +173,11 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddEidtPeopel.cs">
+    <Compile Include="Add_EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEidtPeopel.Designer.cs">
-      <DependentUpon>AddEidtPeopel.cs</DependentUpon>
+    <Compile Include="Add_EditForm.Designer.cs">
+      <DependentUpon>Add_EditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DVLDDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -215,8 +215,8 @@
     <Compile Include="usPersonInfo.Designer.cs">
       <DependentUpon>usPersonInfo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddEidtPeopel.resx">
-      <DependentUpon>AddEidtPeopel.cs</DependentUpon>
+    <EmbeddedResource Include="Add_EditForm.resx">
+      <DependentUpon>Add_EditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

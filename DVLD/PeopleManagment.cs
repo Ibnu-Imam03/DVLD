@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DVLD_BusinessLayer;
 namespace DVLD
 {
     public partial class PeopleManagment : Form

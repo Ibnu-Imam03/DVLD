@@ -165,7 +165,35 @@
         }
 
 
+            public static bool IsNationalIDExist(string NationalNo)
+        {
+            bool IsFound = false;
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
+            string query = "SELECT FOUND=1 FROM People  Where NationalNo = @NationalNo"; 
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
 
+            try
+            {
+                connection.Open();
+
+                SqlDataReader resault = command.ExecuteReader();
+
+                if (resault.HasRows)
+                {
+                    IsFound = true;
+                }
+
+            }catch(Exception ex)
+            {
+                IsFound=false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
 
     }
 }
