@@ -95,8 +95,10 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "diskette.png");
-            this.imageList1.Images.SetKeyName(1, "close.png");
+            this.imageList1.Images.SetKeyName(0, "male.png");
+            this.imageList1.Images.SetKeyName(1, "female-worker.png");
+            this.imageList1.Images.SetKeyName(2, "diskette.png");
+            this.imageList1.Images.SetKeyName(3, "close.png");
             // 
             // cbCountries
             // 
@@ -110,11 +112,12 @@
             // 
             this.dtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDateOfBirth.Location = new System.Drawing.Point(434, 91);
-            this.dtpDateOfBirth.MinDate = new System.DateTime(2025, 1, 27, 0, 0, 0, 0);
+            this.dtpDateOfBirth.MaxDate = new System.DateTime(2005, 8, 6, 0, 0, 0, 0);
+            this.dtpDateOfBirth.MinDate = new System.DateTime(1950, 12, 14, 0, 0, 0, 0);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(99, 20);
             this.dtpDateOfBirth.TabIndex = 74;
-            this.dtpDateOfBirth.Value = new System.DateTime(2026, 8, 11, 21, 6, 22, 0);
+            this.dtpDateOfBirth.Value = new System.DateTime(2005, 8, 6, 0, 0, 0, 0);
             // 
             // label12
             // 
@@ -159,13 +162,14 @@
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(59, 17);
             this.rbFemale.TabIndex = 61;
-            this.rbFemale.TabStop = true;
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
+            this.rbFemale.CheckedChanged += new System.EventHandler(this.rbFemale_CheckedChanged);
             // 
             // rbMale
             // 
             this.rbMale.AutoSize = true;
+            this.rbMale.Checked = true;
             this.rbMale.Location = new System.Drawing.Point(150, 111);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(48, 17);
@@ -173,6 +177,7 @@
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
+            this.rbMale.CheckedChanged += new System.EventHandler(this.rbMale_CheckedChanged);
             // 
             // llRemoveImage
             // 
@@ -201,6 +206,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(366, 137);
             this.txtAddress.TabIndex = 53;
+            this.txtAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddress_Validating);
             // 
             // label8
             // 
@@ -235,6 +241,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 20);
             this.txtPhone.TabIndex = 49;
+            this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtPhone_Validating);
             // 
             // txtEmail
             // 
@@ -242,6 +249,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(100, 20);
             this.txtEmail.TabIndex = 48;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // txtNationalID
             // 
@@ -342,6 +350,7 @@
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -449,9 +458,11 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::DVLD.Properties.Resources.male;
             this.pictureBox1.Location = new System.Drawing.Point(657, 98);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(151, 106);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 54;
             this.pictureBox1.TabStop = false;
             // 

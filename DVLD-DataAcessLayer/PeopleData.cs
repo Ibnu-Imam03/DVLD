@@ -121,7 +121,7 @@
 
             string query = "INSERT INTO People (NationalNo , FirstName , SecondName , ThirdName , LastName ,  DateOfBirth ,  Gendor ," +
                 "  Address ,  Phone ,  Email ,  NationalityCountryID ,  ImagePath) " +
-                "  VALUES (@NationalNo , @FirstName , @econdName , @ThirdName , @LastName ,  @DateOfBirth ,  @Gendor ," +
+                "  VALUES (@NationalNo , @FirstName , @SecondName , @ThirdName , @LastName ,  @DateOfBirth ,  @Gendor ," +
                 "  @Address ,  @Phone ,  @Email , @NationalityCountryID , @ImagePath);  SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -151,8 +151,13 @@
                 if (result != null && int.TryParse(result.ToString(), out int InsertedID)){
                     PersonID = InsertedID;
                 }
+                if (result != null)
+                {
+                    PersonID = Convert.ToInt32(result);
+                }
 
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
 
             }
@@ -183,8 +188,10 @@
                 {
                     IsFound = true;
                 }
+                
 
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 IsFound=false;
             }
