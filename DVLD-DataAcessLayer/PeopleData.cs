@@ -201,37 +201,40 @@ using System.Windows.Forms;
             return IsFound;
         }
 
-            
-            public static bool GetPeopleByPersonID  (int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName,
-                    ref DateTime DateOfBirth, ref int Gendor, ref string Address, ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
+
+        public static bool GetPeopleByPersonID(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, 
+            ref DateTime DateOfBirth, ref int Gendor, ref string Address, ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
         {
             bool isFound = false;
-            SqlConnection connnection = new SqlConnection(PeopeleDatasettings.ConnectionString);
-            string query = "SELECT PersonID , NationalNo , FirstName , SecondName , ThirdName , LastName ,DateOfBirth , Gendor , CountryName , Phone , Email , ,ImagePath" +
-                "FROM People   JOIN   Countries   ON Countries.CountryID = NationalityCountryID Where PersonID= @PersonID";
-            SqlCommand command = new SqlCommand (query, connnection);
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
+
+            string query = "SELECT * FROM People WHERE PersonID = @PersonID";
+
+            SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@PersonID", PersonID);
 
             try
             {
-                connnection.Open();
+                connection.Open();
 
                 SqlDataReader reader = command.ExecuteReader();
+
                 if (reader.Read())
                 {
                     isFound = true;
 
-                    NationalNo = (string)reader[1];
-                    FirstName = (string)reader[2];
-                    SecondName = (string)reader[3];
-                    ThirdName = (string)reader[4];
-                    LastName = (string)reader[5];
-                    DateOfBirth = (DateTime)reader[6];
-                    Gendor = (int)reader[7];
-                    Address = (string)reader[8];
-                    Phone = (string)reader[9];
-                    Email = (string)reader[10];
-                    NationalityCountryID = (int)reader[11];
+                    NationalNo = (string)reader["NationalNo"];
+                    FirstName = (string)reader["FirstName"];
+                    SecondName = (string)reader["SecondName"];
+                    ThirdName = (string)reader["ThirdName"];
+                    LastName = (string)reader["LastName"];
+                    DateOfBirth = (DateTime)reader["DateOfBirth"];
+                    Gendor = (int)reader["Gendor"];
+                    Address = (string)reader["Address"];
+                    Phone = (string)reader["Phone"];
+                    Email = (string)reader["Email"];
+                    NationalityCountryID = (int)reader["NationalityCountryID"];
+
                     if (reader["ImagePath"] != DBNull.Value)
                     {
                         ImagePath = (string)reader["ImagePath"];
@@ -240,20 +243,20 @@ using System.Windows.Forms;
                     {
                         ImagePath = "";
                     }
-
-
                 }
-            }catch (Exception ex)
+
+                reader.Close();
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             finally
             {
-                connnection.Close();
+                connection.Close();
             }
+
             return isFound;
-
-
         }
 
     }

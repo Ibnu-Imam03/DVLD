@@ -24,17 +24,26 @@ namespace DVLD
         private void Add_EditForm_Load(object sender, EventArgs e)
         {
 
-            lblPersonID.Text = usPersonInfo1.GetPersonID().ToString();
         }
 
         private void usPersonInfo1_Load(object sender, EventArgs e)
         {
-            lblPersonID.Text = usPersonInfo1.GetPersonID().ToString();
 
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+       
+        private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void btnSave_Click_1(object sender, EventArgs e)
+        {
+            clsPeople Person = new clsPeople();
+            Person = usPersonInfo1.LoadPersonData();
+            lblPersonID.Text = Person.PersonID.ToString();
+            Person.Save();
+
 
         }
     }

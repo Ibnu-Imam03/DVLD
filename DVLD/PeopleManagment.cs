@@ -24,10 +24,30 @@ namespace DVLD
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnApplication_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPeople_Click(object sender, EventArgs e)
         {
             Form ManagePeople = new ManagePeople();
             ManagePeople.Show();
+        }
+
+        private void btnDriver_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAccountSettings_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

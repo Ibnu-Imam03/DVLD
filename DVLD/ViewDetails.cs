@@ -26,11 +26,8 @@ namespace DVLD
 
         private void ViewDetails_Load(object sender, EventArgs e)
         {
-            if (usPersonInfo1.LoadData(_PersonID) == -1)
-            {
-                MessageBox.Show("No Data !!!");
-            }
-            lblPersonID.Text = usPersonInfo1.GetPersonID().ToString();
+            lblPersonID.Text = _PersonID.ToString();
+
         }
     }
 }

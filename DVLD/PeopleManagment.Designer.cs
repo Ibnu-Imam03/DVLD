@@ -32,11 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PeopleManagment));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnApplication = new System.Windows.Forms.Button();
+            this.btnAccountSettings = new System.Windows.Forms.Button();
+            this.btnPeople = new System.Windows.Forms.Button();
+            this.btnUsers = new System.Windows.Forms.Button();
+            this.btnDriver = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,142 +53,146 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.btnApplication);
+            this.panel1.Controls.Add(this.btnAccountSettings);
+            this.panel1.Controls.Add(this.btnPeople);
+            this.panel1.Controls.Add(this.btnUsers);
+            this.panel1.Controls.Add(this.btnDriver);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(901, 44);
             this.panel1.TabIndex = 5;
             // 
-            // button1
+            // btnApplication
             // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.ImageIndex = 0;
-            this.button1.ImageList = this.imageList1;
-            this.button1.Location = new System.Drawing.Point(1, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(1, 2, 3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 38);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Application";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnApplication.AutoSize = true;
+            this.btnApplication.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnApplication.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnApplication.FlatAppearance.BorderSize = 0;
+            this.btnApplication.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnApplication.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnApplication.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnApplication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApplication.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnApplication.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnApplication.ImageIndex = 0;
+            this.btnApplication.ImageList = this.imageList1;
+            this.btnApplication.Location = new System.Drawing.Point(1, 2);
+            this.btnApplication.Margin = new System.Windows.Forms.Padding(1, 2, 3, 3);
+            this.btnApplication.Name = "btnApplication";
+            this.btnApplication.Size = new System.Drawing.Size(127, 38);
+            this.btnApplication.TabIndex = 0;
+            this.btnApplication.Text = "Application";
+            this.btnApplication.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnApplication.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnApplication.UseVisualStyleBackColor = false;
+            this.btnApplication.Click += new System.EventHandler(this.btnApplication_Click);
             // 
-            // button5
+            // btnAccountSettings
             // 
-            this.button5.AutoSize = true;
-            this.button5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.ImageIndex = 4;
-            this.button5.ImageList = this.imageList1;
-            this.button5.Location = new System.Drawing.Point(525, 2);
-            this.button5.Margin = new System.Windows.Forms.Padding(1, 2, 3, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(164, 38);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Account Settings";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnAccountSettings.AutoSize = true;
+            this.btnAccountSettings.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAccountSettings.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAccountSettings.FlatAppearance.BorderSize = 0;
+            this.btnAccountSettings.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnAccountSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnAccountSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnAccountSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccountSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccountSettings.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAccountSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAccountSettings.ImageIndex = 4;
+            this.btnAccountSettings.ImageList = this.imageList1;
+            this.btnAccountSettings.Location = new System.Drawing.Point(525, 2);
+            this.btnAccountSettings.Margin = new System.Windows.Forms.Padding(1, 2, 3, 3);
+            this.btnAccountSettings.Name = "btnAccountSettings";
+            this.btnAccountSettings.Size = new System.Drawing.Size(164, 38);
+            this.btnAccountSettings.TabIndex = 4;
+            this.btnAccountSettings.Text = "Account Settings";
+            this.btnAccountSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAccountSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAccountSettings.UseVisualStyleBackColor = false;
+            this.btnAccountSettings.Click += new System.EventHandler(this.btnAccountSettings_Click);
             // 
-            // button2
+            // btnPeople
             // 
-            this.button2.AutoSize = true;
-            this.button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.ImageIndex = 1;
-            this.button2.ImageList = this.imageList1;
-            this.button2.Location = new System.Drawing.Point(132, 2);
-            this.button2.Margin = new System.Windows.Forms.Padding(1, 2, 3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 38);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "People";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnPeople.AutoSize = true;
+            this.btnPeople.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPeople.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnPeople.FlatAppearance.BorderSize = 0;
+            this.btnPeople.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnPeople.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnPeople.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnPeople.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPeople.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnPeople.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPeople.ImageIndex = 1;
+            this.btnPeople.ImageList = this.imageList1;
+            this.btnPeople.Location = new System.Drawing.Point(132, 2);
+            this.btnPeople.Margin = new System.Windows.Forms.Padding(1, 2, 3, 3);
+            this.btnPeople.Name = "btnPeople";
+            this.btnPeople.Size = new System.Drawing.Size(127, 38);
+            this.btnPeople.TabIndex = 1;
+            this.btnPeople.Text = "People";
+            this.btnPeople.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPeople.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPeople.UseVisualStyleBackColor = false;
+            this.btnPeople.Click += new System.EventHandler(this.btnPeople_Click);
             // 
-            // button4
+            // btnUsers
             // 
-            this.button4.AutoSize = true;
-            this.button4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.ImageIndex = 3;
-            this.button4.ImageList = this.imageList1;
-            this.button4.Location = new System.Drawing.Point(394, 2);
-            this.button4.Margin = new System.Windows.Forms.Padding(1, 2, 3, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(127, 38);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Users";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnUsers.AutoSize = true;
+            this.btnUsers.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnUsers.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnUsers.FlatAppearance.BorderSize = 0;
+            this.btnUsers.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnUsers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnUsers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsers.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers.ImageIndex = 3;
+            this.btnUsers.ImageList = this.imageList1;
+            this.btnUsers.Location = new System.Drawing.Point(394, 2);
+            this.btnUsers.Margin = new System.Windows.Forms.Padding(1, 2, 3, 3);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Size = new System.Drawing.Size(127, 38);
+            this.btnUsers.TabIndex = 3;
+            this.btnUsers.Text = "Users";
+            this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUsers.UseVisualStyleBackColor = false;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
-            // button3
+            // btnDriver
             // 
-            this.button3.AutoSize = true;
-            this.button3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.ImageIndex = 2;
-            this.button3.ImageList = this.imageList1;
-            this.button3.Location = new System.Drawing.Point(263, 2);
-            this.button3.Margin = new System.Windows.Forms.Padding(1, 2, 3, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(127, 38);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Drivers";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnDriver.AutoSize = true;
+            this.btnDriver.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDriver.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDriver.FlatAppearance.BorderSize = 0;
+            this.btnDriver.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnDriver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnDriver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnDriver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDriver.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnDriver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDriver.ImageIndex = 2;
+            this.btnDriver.ImageList = this.imageList1;
+            this.btnDriver.Location = new System.Drawing.Point(263, 2);
+            this.btnDriver.Margin = new System.Windows.Forms.Padding(1, 2, 3, 3);
+            this.btnDriver.Name = "btnDriver";
+            this.btnDriver.Size = new System.Drawing.Size(127, 38);
+            this.btnDriver.TabIndex = 2;
+            this.btnDriver.Text = "Drivers";
+            this.btnDriver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDriver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDriver.UseVisualStyleBackColor = false;
+            this.btnDriver.Click += new System.EventHandler(this.btnDriver_Click);
             // 
             // PeopleManagment
             // 
@@ -209,11 +213,11 @@
         #endregion
 
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnApplication;
+        private System.Windows.Forms.Button btnPeople;
+        private System.Windows.Forms.Button btnDriver;
+        private System.Windows.Forms.Button btnUsers;
+        private System.Windows.Forms.Button btnAccountSettings;
         private System.Windows.Forms.Panel panel1;
     }
 }

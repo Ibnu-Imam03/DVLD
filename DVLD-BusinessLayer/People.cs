@@ -1,6 +1,7 @@
 ﻿using DVLD_DataAcessLayer;
 using System;
 using System.Data;
+using System.Net;
 
 namespace DVLD_BusinessLayer
 {
@@ -24,6 +25,28 @@ namespace DVLD_BusinessLayer
         public enum enMode { AddNew=0, Update=1 };
         public enMode Mode = enMode.AddNew;
 
+        public clsPeople()
+        {
+
+        }
+
+        private clsPeople(int PersonID,  string NationalNo,  string FirstName,  string SecondName,  string ThirdName, 
+             string LastName,  DateTime DateOfBirth,  int Gendor,  string Address,  string Phone,  string Email,  int NationalityCountryID,  string ImagePath)
+        {
+            this.PersonID = PersonID;
+            this.NationalNo = NationalNo;
+            this.FirstName = FirstName;
+            this.SecondName = SecondName;
+            this.ThirdName = ThirdName;
+            this.LastName = LastName;
+            this.DateOfBirth = DateOfBirth;
+            this.Gendor = Gendor;
+            this.Address = Address;
+            this.Phone = Phone;
+            this.Email = Email;
+            this.NationalityCountryID = NationalityCountryID;
+            this.ImagePath = ImagePath;
+        }
 
         public static DataTable GetAllPeoeple()
         {
@@ -75,7 +98,7 @@ namespace DVLD_BusinessLayer
             return clsPeopleDataAcess.IsNationalIDExist(NID);
         }
 
-        public bool Find(int PersonID)
+        public clsPeople Find(int PersonID)
         {
             string NationalNo = "";
             string FirstName = "";
@@ -90,41 +113,18 @@ namespace DVLD_BusinessLayer
             int NationalityCountryID = -1;
             string ImagePath = "";
 
-            bool IsFound = clsPeopleDataAcess.GetPeopleByPersonID(
-                PersonID,
-                ref NationalNo,
-                ref FirstName,
-                ref SecondName,
-                ref ThirdName,
-                ref LastName,
-                ref DateOfBirth,
-                ref Gendor,
-                ref Address,
-                ref Phone,
-                ref Email,
-                ref NationalityCountryID,
-                ref ImagePath
-            );
-
-            if (IsFound)
+             if (clsPeopleDataAcess.GetPeopleByPersonID(PersonID, ref NationalNo, ref FirstName, ref SecondName,
+                ref ThirdName, ref LastName, ref DateOfBirth, ref Gendor, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref ImagePath))
             {
-                // Copy local variables to object properties
-                this.PersonID = PersonID;
-                this.NationalNo = NationalNo;
-                this.FirstName = FirstName;
-                this.SecondName = SecondName;
-                this.ThirdName = ThirdName;
-                this.LastName = LastName;
-                this.DateOfBirth = DateOfBirth;
-                this.Gendor = Gendor;
-                this.Address = Address;
-                this.Phone = Phone;
-                this.Email = Email;
-                this.NationalityCountryID = NationalityCountryID;
-                this.ImagePath = ImagePath;
+                return new  clsPeople(PersonID, NationalNo, FirstName, SecondName, ThirdName,
+              LastName, DateOfBirth, Gendor, Address, Phone, Email, NationalityCountryID, ImagePath);
+            }
+            else
+            {
+                return null;
             }
 
-            return IsFound;
+            
         }
     }
 }

@@ -8,11 +8,13 @@ namespace DVLD
 {
     public partial class usPersonInfo : UserControl
     {
-
+       
         public usPersonInfo()
         {
             InitializeComponent();
+            
         }
+     
         private string _ImagePath = "";
         private clsPeople Person = new clsPeople();
 
@@ -20,89 +22,100 @@ namespace DVLD
         public event DataEventHandeler DataBack;
 
 
-        public int LoadData(int PersonID)
+        public clsPeople LoadPersonData()
         {
-            clsPeople Person = new clsPeople();
-
-            if (PersonID ==-1)
+            if (!this.ValidateChildren())
+            {
+                MessageBox.Show("Please correct the validation errors.");
+                return null;
+            }
+            else
             {
                 Person.FirstName = txtFirstName.Text;
                 Person.SecondName = txtSecoundName.Text;
                 Person.ThirdName = txtThirdName.Text;
                 Person.LastName = txtLastName.Text;
                 Person.NationalNo = txtNationalID.Text;
-                if (rbMale.Checked)
-                {
-                    Person.Gendor = 0;
-                }
-                else
-                {
-                    Person.Gendor = 1;
-                }
+
+                Person.Gendor = rbMale.Checked ? 0 : 1;
+
                 Person.Email = txtEmail.Text;
                 Person.Phone = txtPhone.Text;
                 Person.DateOfBirth = dtpDateOfBirth.Value;
                 Person.NationalityCountryID = cbCountries.SelectedIndex;
                 Person.Address = txtAddress.Text;
                 Person.ImagePath = _ImagePath;
-                if (Person.Save())
-                {
-                    return Person.PersonID;
-                }
-
-                return -1;
-
+                return Person;
             }
-
-            else if (Person.Find(PersonID))
+            
+           
+        }
+        public void LoadData(int PersonID)
+        {
+            clsPeople person = new clsPeople();
+            if (person.Find(PersonID) == null)
             {
+                MessageBox.Show("WWWWWWWffffffffffffffffffffffWWWW");
+            }
+            else
+            {
+
+
                 txtFirstName.Text = Person.FirstName;
-                txtFirstName.Enabled = false;
+                txtFirstName.ReadOnly = true;
+
                 txtSecoundName.Text = Person.SecondName;
-                txtSecoundName.Enabled = false;
+                txtSecoundName.ReadOnly = true;
+
                 txtThirdName.Text = Person.ThirdName;
-                txtThirdName.Enabled = false;
+                txtThirdName.ReadOnly = true;
+
                 txtLastName.Text = Person.LastName;
-                txtLastName.Enabled = false;
-                txtAddress.Text = Person.Address;
-                txtAddress.Enabled = false;
-                txtEmail.Text = Person.Email;
-                txtEmail.Enabled = false;
+                txtLastName.ReadOnly = true;
+
                 txtNationalID.Text = Person.NationalNo;
-                txtNationalID.Enabled = false;
+                txtNationalID.ReadOnly = true;
+
                 txtPhone.Text = Person.Phone;
-                txtNationalID.Enabled = false;
-                cbCountries.SelectedIndex = Person.NationalityCountryID;
+                txtPhone.ReadOnly = true;
+
+                txtEmail.Text = Person.Email;
+                txtEmail.ReadOnly = true;
+
+                txtAddress.Text = Person.Address;
+                txtAddress.ReadOnly = true;
+
+                // Country
+                cbCountries.SelectedValue = Person.NationalityCountryID;
                 cbCountries.Enabled = false;
+
+                // Gender
                 if (Person.Gendor == 0)
                 {
                     rbMale.Checked = true;
-                    rbMale.Enabled = false;
                 }
                 else
                 {
                     rbFemale.Checked = true;
-                    rbFemale.Enabled = false;
                 }
-                if (Person.ImagePath != "")
+
+                rbMale.Enabled = false;
+                rbFemale.Enabled = false;
+
+                // Image
+                if (!string.IsNullOrEmpty(Person.ImagePath))
                 {
                     pictureBox1.ImageLocation = Person.ImagePath;
-                    llRemoveImage.Visible = false;
-                    llSaveImage.Visible = false;
-
                 }
-                return Person.PersonID;
-            }
 
-            else
-            {
-                MessageBox.Show("No Person Data");
-                return -1;
+                // Hide image options
+                llRemoveImage.Visible = false;
+                llSaveImage.Visible = false;
             }
-
         }
         private void usPersonInfo_Load(object sender, System.EventArgs e)
         {
+
             cbCountries.DataSource = Countries.GetAllCountries();
             cbCountries.DisplayMember = "CountryName";
 
@@ -114,9 +127,8 @@ namespace DVLD
             }
 
             llRemoveImage.Visible = false;
-            
-        }
-
+        }     
+           
         private bool _ISValid(string Name)
         {
             foreach (char c in Name)
@@ -308,16 +320,7 @@ namespace DVLD
             }
         }
 
-        private void btnSave_Click(object sender, System.EventArgs e)
-        {
-            
-        }
-
-        private void btnCancel_Click(object sender, System.EventArgs e)
-        {
-            this.FindForm().Close();
-
-        }
+           
 
         private void llSaveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -345,13 +348,15 @@ namespace DVLD
 
         }
 
-        public  clsPeople GetPerson()
+        private void llRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            return Person;
+            pictureBox1.Image = imageList1.Images[0];
+            llRemoveImage.Visible = false;
+            _ImagePath = "";
         }
-        public  int GetPersonID()
-        {
-            return Person.PersonID;
-        }
+
+       
+
+       
     }
 }

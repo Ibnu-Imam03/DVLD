@@ -34,10 +34,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.lblPersonID = new System.Windows.Forms.Label();
-            this.usPersonInfo1 = new DVLD.usPersonInfo();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.usPersonInfo1 = new DVLD.usPersonInfo();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,14 +77,6 @@
             this.lblPersonID.TabIndex = 4;
             this.lblPersonID.Text = "0";
             // 
-            // usPersonInfo1
-            // 
-            this.usPersonInfo1.Location = new System.Drawing.Point(12, 68);
-            this.usPersonInfo1.Name = "usPersonInfo1";
-            this.usPersonInfo1.Size = new System.Drawing.Size(804, 361);
-            this.usPersonInfo1.TabIndex = 0;
-            this.usPersonInfo1.Load += new System.EventHandler(this.usPersonInfo1_Load);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DVLD.Properties.Resources.id_proof_black_icon;
@@ -97,21 +89,31 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(273, 436);
+            this.btnCancel.Location = new System.Drawing.Point(228, 427);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(442, 435);
+            this.btnSave.Location = new System.Drawing.Point(620, 425);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
+            // 
+            // usPersonInfo1
+            // 
+            this.usPersonInfo1.Location = new System.Drawing.Point(27, 75);
+            this.usPersonInfo1.Name = "usPersonInfo1";
+            this.usPersonInfo1.Size = new System.Drawing.Size(804, 328);
+            this.usPersonInfo1.TabIndex = 0;
+            this.usPersonInfo1.Load += new System.EventHandler(this.usPersonInfo1_Load);
             // 
             // Add_EditForm
             // 
