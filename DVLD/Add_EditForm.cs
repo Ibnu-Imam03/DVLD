@@ -20,9 +20,21 @@ namespace DVLD
         public delegate void DataEventHandeler(object sender, clsPeople People);
         public event DataEventHandeler DataBack;
         clsPeople Person {  get; set; }
+
         private void Add_EditForm_Load(object sender, EventArgs e)
         {
-            DataBack?.Invoke(this, Person);
+
+            lblPersonID.Text = usPersonInfo1.GetPersonID().ToString();
+        }
+
+        private void usPersonInfo1_Load(object sender, EventArgs e)
+        {
+            lblPersonID.Text = usPersonInfo1.GetPersonID().ToString();
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
 
         }
     }

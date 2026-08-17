@@ -179,6 +179,7 @@
     <Compile Include="Add_EditForm.Designer.cs">
       <DependentUpon>Add_EditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="clsShowDetailes.cs" />
     <Compile Include="DVLDDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -215,6 +216,12 @@
     <Compile Include="usPersonInfo.Designer.cs">
       <DependentUpon>usPersonInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewDetails.Designer.cs">
+      <DependentUpon>ViewDetails.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Add_EditForm.resx">
       <DependentUpon>Add_EditForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +246,9 @@
     </Compile>
     <EmbeddedResource Include="usPersonInfo.resx">
       <DependentUpon>usPersonInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewDetails.resx">
+      <DependentUpon>ViewDetails.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DVLDDataSet.xsc">
       <DependentUpon>DVLDDataSet.xsd</DependentUpon>
@@ -297,6 +307,7 @@
     <None Include="Resources\profile %281%29.png" />
     <None Include="Resources\id-card.png" />
     <None Include="Resources\customer1.png" />
+    <None Include="Resources\id-proof-black-icon.png" />
     <Content Include="Resources\list-square-bullet-icon.png" />
     <None Include="Resources\phone-call-icon.png" />
     <Content Include="Resources\profile.png" />

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using DVLD_DataAcessLayer;
+using System;
 using System.Data;
-using DVLD_DataAcessLayer;
 
 namespace DVLD_BusinessLayer
 {
@@ -73,6 +73,58 @@ namespace DVLD_BusinessLayer
         public static bool IsNationalIDExist(string NID)
         {
             return clsPeopleDataAcess.IsNationalIDExist(NID);
+        }
+
+        public bool Find(int PersonID)
+        {
+            string NationalNo = "";
+            string FirstName = "";
+            string SecondName = "";
+            string ThirdName = "";
+            string LastName = "";
+            DateTime DateOfBirth = DateTime.Now;
+            int Gendor = 0;
+            string Address = "";
+            string Phone = "";
+            string Email = "";
+            int NationalityCountryID = -1;
+            string ImagePath = "";
+
+            bool IsFound = clsPeopleDataAcess.GetPeopleByPersonID(
+                PersonID,
+                ref NationalNo,
+                ref FirstName,
+                ref SecondName,
+                ref ThirdName,
+                ref LastName,
+                ref DateOfBirth,
+                ref Gendor,
+                ref Address,
+                ref Phone,
+                ref Email,
+                ref NationalityCountryID,
+                ref ImagePath
+            );
+
+            if (IsFound)
+            {
+                // Copy local variables to object properties
+                this.PersonID = PersonID;
+                this.NationalNo = NationalNo;
+                this.FirstName = FirstName;
+                this.SecondName = SecondName;
+                this.ThirdName = ThirdName;
+                this.LastName = LastName;
+                this.DateOfBirth = DateOfBirth;
+                this.Gendor = Gendor;
+                this.Address = Address;
+                this.Phone = Phone;
+                this.Email = Email;
+                this.NationalityCountryID = NationalityCountryID;
+                this.ImagePath = ImagePath;
+            }
+
+            return IsFound;
         }
     }
 }

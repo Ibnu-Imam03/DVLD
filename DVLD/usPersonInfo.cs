@@ -8,6 +8,7 @@ namespace DVLD
 {
     public partial class usPersonInfo : UserControl
     {
+
         public usPersonInfo()
         {
             InitializeComponent();
@@ -19,6 +20,87 @@ namespace DVLD
         public event DataEventHandeler DataBack;
 
 
+        public int LoadData(int PersonID)
+        {
+            clsPeople Person = new clsPeople();
+
+            if (PersonID ==-1)
+            {
+                Person.FirstName = txtFirstName.Text;
+                Person.SecondName = txtSecoundName.Text;
+                Person.ThirdName = txtThirdName.Text;
+                Person.LastName = txtLastName.Text;
+                Person.NationalNo = txtNationalID.Text;
+                if (rbMale.Checked)
+                {
+                    Person.Gendor = 0;
+                }
+                else
+                {
+                    Person.Gendor = 1;
+                }
+                Person.Email = txtEmail.Text;
+                Person.Phone = txtPhone.Text;
+                Person.DateOfBirth = dtpDateOfBirth.Value;
+                Person.NationalityCountryID = cbCountries.SelectedIndex;
+                Person.Address = txtAddress.Text;
+                Person.ImagePath = _ImagePath;
+                if (Person.Save())
+                {
+                    return Person.PersonID;
+                }
+
+                return -1;
+
+            }
+
+            else if (Person.Find(PersonID))
+            {
+                txtFirstName.Text = Person.FirstName;
+                txtFirstName.Enabled = false;
+                txtSecoundName.Text = Person.SecondName;
+                txtSecoundName.Enabled = false;
+                txtThirdName.Text = Person.ThirdName;
+                txtThirdName.Enabled = false;
+                txtLastName.Text = Person.LastName;
+                txtLastName.Enabled = false;
+                txtAddress.Text = Person.Address;
+                txtAddress.Enabled = false;
+                txtEmail.Text = Person.Email;
+                txtEmail.Enabled = false;
+                txtNationalID.Text = Person.NationalNo;
+                txtNationalID.Enabled = false;
+                txtPhone.Text = Person.Phone;
+                txtNationalID.Enabled = false;
+                cbCountries.SelectedIndex = Person.NationalityCountryID;
+                cbCountries.Enabled = false;
+                if (Person.Gendor == 0)
+                {
+                    rbMale.Checked = true;
+                    rbMale.Enabled = false;
+                }
+                else
+                {
+                    rbFemale.Checked = true;
+                    rbFemale.Enabled = false;
+                }
+                if (Person.ImagePath != "")
+                {
+                    pictureBox1.ImageLocation = Person.ImagePath;
+                    llRemoveImage.Visible = false;
+                    llSaveImage.Visible = false;
+
+                }
+                return Person.PersonID;
+            }
+
+            else
+            {
+                MessageBox.Show("No Person Data");
+                return -1;
+            }
+
+        }
         private void usPersonInfo_Load(object sender, System.EventArgs e)
         {
             cbCountries.DataSource = Countries.GetAllCountries();
@@ -228,33 +310,11 @@ namespace DVLD
 
         private void btnSave_Click(object sender, System.EventArgs e)
         {
-            Person.FirstName = txtFirstName.Text;
-            Person.SecondName = txtSecoundName.Text;
-            Person.ThirdName = txtThirdName.Text;
-            Person.LastName = txtLastName.Text;
-            Person.NationalNo = txtNationalID.Text;
-            if (rbMale.Checked)
-            {
-                Person.Gendor =0;
-            }
-            else
-            {
-                Person.Gendor = 1;
-            }
-
-            Person.Email = txtEmail.Text;
-            Person.Phone = txtPhone.Text;
-            Person.DateOfBirth = dtpDateOfBirth.Value;
-            Person.NationalityCountryID = cbCountries.SelectedIndex;
-            Person.Address = txtAddress.Text;
-            Person.ImagePath = _ImagePath;
-
-            Person.Save();
+            
         }
 
         private void btnCancel_Click(object sender, System.EventArgs e)
         {
-
             this.FindForm().Close();
 
         }
@@ -288,6 +348,10 @@ namespace DVLD
         public  clsPeople GetPerson()
         {
             return Person;
+        }
+        public  int GetPersonID()
+        {
+            return Person.PersonID;
         }
     }
 }

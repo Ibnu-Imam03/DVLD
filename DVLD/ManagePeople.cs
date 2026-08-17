@@ -91,5 +91,10 @@
             frm.DataBack += AddNewPerson;
             frm.Show();
         }
+
+        private void showDetailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     }
