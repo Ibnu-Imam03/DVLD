@@ -39,7 +39,7 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.txtFilter = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.PersonAdd = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManage_People)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -142,16 +142,16 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // PersonAdd
             // 
-            this.button1.ImageIndex = 1;
-            this.button1.ImageList = this.imageList1;
-            this.button1.Location = new System.Drawing.Point(885, 129);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(43, 42);
-            this.button1.TabIndex = 7;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.PersonAdd.ImageIndex = 1;
+            this.PersonAdd.ImageList = this.imageList1;
+            this.PersonAdd.Location = new System.Drawing.Point(885, 129);
+            this.PersonAdd.Name = "PersonAdd";
+            this.PersonAdd.Size = new System.Drawing.Size(43, 42);
+            this.PersonAdd.TabIndex = 7;
+            this.PersonAdd.UseVisualStyleBackColor = true;
+            this.PersonAdd.Click += new System.EventHandler(this.PersonAdd_Click);
             // 
             // pictureBox2
             // 
@@ -168,7 +168,7 @@
             this.ClientSize = new System.Drawing.Size(962, 404);
             this.Controls.Add(this.txtFilter);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.PersonAdd);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbFilter);
@@ -201,7 +201,7 @@
         private System.Windows.Forms.ComboBox cbFilter;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button PersonAdd;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtFilter;

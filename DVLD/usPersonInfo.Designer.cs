@@ -491,7 +491,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "usPersonInfo";
-            this.Size = new System.Drawing.Size(883, 369);
+            this.Size = new System.Drawing.Size(862, 361);
+            this.Load += new System.EventHandler(this.usPersonInfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();

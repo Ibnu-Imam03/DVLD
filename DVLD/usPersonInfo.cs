@@ -9,6 +9,9 @@ namespace DVLD
             InitializeComponent();
         }
 
+        private void usPersonInfo_Load(object sender, System.EventArgs e)
+        {
 
+        }
     }
 }

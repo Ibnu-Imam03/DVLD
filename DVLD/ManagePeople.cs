@@ -11,8 +11,6 @@
                 InitializeComponent();
             }
 
-
-
             private void ManagePeople_Load(object sender, EventArgs e)
             {
                 dgvManage_People.DataSource = clsPeople.GetAllPeoeple();
@@ -70,11 +68,9 @@
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void PersonAdd_Click(object sender, EventArgs e)
         {
 
         }
-
-       
     }
 }

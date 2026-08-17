@@ -179,7 +179,6 @@
     <Compile Include="AddEidtPeopel.Designer.cs">
       <DependentUpon>AddEidtPeopel.cs</DependentUpon>
     </Compile>
-    <Compile Include="clsAdd\Edit.cs" />
     <Compile Include="DVLDDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
