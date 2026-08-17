@@ -1,6 +1,8 @@
-﻿using System.Windows.Forms;
-
-using DVLD_BusinessLayer;
+﻿using DVLD_BusinessLayer;
+using System;
+using System.Data;
+using System.IO;
+using System.Windows.Forms;
 
 namespace DVLD
 {
@@ -10,6 +12,12 @@ namespace DVLD
         {
             InitializeComponent();
         }
+        private string _ImagePath = "";
+        private clsPeople Person = new clsPeople();
+
+        public delegate void DataEventHandeler(object sender, DataTable People);
+        public event DataEventHandeler DataBack;
+
 
         private void usPersonInfo_Load(object sender, System.EventArgs e)
         {
@@ -23,6 +31,8 @@ namespace DVLD
                 pictureBox1.Image = imageList1.Images[0];
             }
 
+            llRemoveImage.Visible = false;
+            
         }
 
         private bool _ISValid(string Name)
@@ -218,7 +228,6 @@ namespace DVLD
 
         private void btnSave_Click(object sender, System.EventArgs e)
         {
-            clsPeople Person = new clsPeople();
             Person.FirstName = txtFirstName.Text;
             Person.SecondName = txtSecoundName.Text;
             Person.ThirdName = txtThirdName.Text;
@@ -226,11 +235,11 @@ namespace DVLD
             Person.NationalNo = txtNationalID.Text;
             if (rbMale.Checked)
             {
-                Person.Gendor = "Male";
+                Person.Gendor =0;
             }
             else
             {
-                Person.Gendor = "Female";
+                Person.Gendor = 1;
             }
 
             Person.Email = txtEmail.Text;
@@ -238,9 +247,47 @@ namespace DVLD
             Person.DateOfBirth = dtpDateOfBirth.Value;
             Person.NationalityCountryID = cbCountries.SelectedIndex;
             Person.Address = txtAddress.Text;
-            Person.ImagePath = "";
+            Person.ImagePath = _ImagePath;
 
             Person.Save();
+        }
+
+        private void btnCancel_Click(object sender, System.EventArgs e)
+        {
+
+            this.FindForm().Close();
+
+        }
+
+        private void llSaveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+        {
+                string ImagesFolder = @"C:\DVLD Images";
+
+                if (!Directory.Exists(ImagesFolder))
+            {   
+                Directory.CreateDirectory(ImagesFolder);
+            }
+            string FileName = Guid.NewGuid().ToString() + Path.GetExtension(openFileDialog.FileName);
+            _ImagePath = Path.Combine(ImagesFolder, FileName);
+            File.Copy(openFileDialog.FileName, _ImagePath);
+
+            pictureBox1.ImageLocation = _ImagePath;
+
+        }
+
+            llRemoveImage.Visible = true;
+
+        }
+
+        public  clsPeople GetPerson()
+        {
+            return Person;
         }
     }
 }

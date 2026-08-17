@@ -33,7 +33,7 @@
             // 
             // usPersonInfo1
             // 
-            this.usPersonInfo1.Location = new System.Drawing.Point(12, 12);
+            this.usPersonInfo1.Location = new System.Drawing.Point(53, 77);
             this.usPersonInfo1.Name = "usPersonInfo1";
             this.usPersonInfo1.Size = new System.Drawing.Size(808, 361);
             this.usPersonInfo1.TabIndex = 0;

@@ -14,7 +14,7 @@ namespace DVLD_BusinessLayer
         public string ThirdName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public string Gendor { get; set; }
+        public int Gendor { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }

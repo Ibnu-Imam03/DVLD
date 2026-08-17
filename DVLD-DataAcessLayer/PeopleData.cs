@@ -1,6 +1,7 @@
 ﻿    using System;
     using System.Data;
     using System.Data.SqlClient;
+using System.Windows.Forms;
 
 
     namespace DVLD_DataAcessLayer
@@ -12,7 +13,7 @@
             {
                 DataTable TbPeople = new DataTable();
                 SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
-                string query = "SELECT PersonID , NationalNo , FirstName , SecondName , ThirdName , LastName ,DateOfBirth , Gendor , CountryName , Phone , Email  " +
+                string query = "SELECT PersonID , NationalNo , FirstName , SecondName , ThirdName , LastName ,DateOfBirth , Gendor , CountryName , Phone , Email ,ImagePath " +
                     "   FROM People   JOIN   Countries   ON Countries.CountryID = NationalityCountryID ";
 
                 SqlCommand command =  new SqlCommand(query, connection);
@@ -113,7 +114,7 @@
 
 
             public static int AddNewPerson (string NationalNo , string FirstName , string SecondName , string ThirdName , string LastName , 
-                    DateTime DateOfBirth , string Gendor , string Address , string Phone , string Email , int NationalityCountryID , string ImagePath)
+                    DateTime DateOfBirth , int Gendor , string Address , string Phone , string Email , int NationalityCountryID , string ImagePath)
         {
 
             int PersonID = -1; 
@@ -148,9 +149,6 @@
 
                 object result = command.ExecuteScalar();
 
-                if (result != null && int.TryParse(result.ToString(), out int InsertedID)){
-                    PersonID = InsertedID;
-                }
                 if (result != null)
                 {
                     PersonID = Convert.ToInt32(result);
@@ -159,6 +157,7 @@
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
 
             }
             finally

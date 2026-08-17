@@ -198,6 +198,7 @@
             this.llSaveImage.TabIndex = 55;
             this.llSaveImage.TabStop = true;
             this.llSaveImage.Text = "Save Image ";
+            this.llSaveImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llSaveImage_LinkClicked);
             // 
             // txtAddress
             // 
@@ -365,6 +366,7 @@
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // pictureBox10
             // 

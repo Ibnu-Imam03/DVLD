@@ -71,7 +71,25 @@
             private void PersonAdd_Click(object sender, EventArgs e)
             {
                 Add_EditForm frm = new Add_EditForm();
+                frm.DataBack += AddNewPerson;
                 frm.Show();
             }
+
+            private void AddNewPerson(object sender, clsPeople Person)
+        {
+
+            
+
+            dgvManage_People.DataSource = clsPeople.GetAllPeoeple();
+
+
         }
+
+        private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Add_EditForm frm = new Add_EditForm();
+            frm.DataBack += AddNewPerson;
+            frm.Show();
+        }
+    }
     }

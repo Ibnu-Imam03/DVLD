@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,9 +17,12 @@ namespace DVLD
         {
             InitializeComponent();
         }
-
+        public delegate void DataEventHandeler(object sender, clsPeople People);
+        public event DataEventHandeler DataBack;
+        clsPeople Person {  get; set; }
         private void Add_EditForm_Load(object sender, EventArgs e)
         {
+            DataBack?.Invoke(this, Person);
 
         }
     }

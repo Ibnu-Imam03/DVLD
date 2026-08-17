@@ -285,6 +285,8 @@
     <None Include="Resources\country.png" />
     <None Include="Resources\phone-call.png" />
     <None Include="Resources\calendar.png" />
+    <None Include="Resources\add-user1.png" />
+    <None Include="Resources\brush-pencil-icon.png" />
     <Content Include="Resources\close.png" />
     <Content Include="Resources\customer.png" />
     <None Include="Resources\location.png" />
@@ -295,7 +297,11 @@
     <None Include="Resources\profile %281%29.png" />
     <None Include="Resources\id-card.png" />
     <None Include="Resources\customer1.png" />
+    <Content Include="Resources\list-square-bullet-icon.png" />
+    <None Include="Resources\phone-call-icon.png" />
     <Content Include="Resources\profile.png" />
+    <None Include="Resources\trash-can-black-icon.png" />
+    <None Include="Resources\send-icon.png" />
     <Content Include="Resources\user %281%29.png" />
     <Content Include="Resources\user.png" />
   </ItemGroup>
