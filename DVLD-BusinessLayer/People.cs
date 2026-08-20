@@ -25,6 +25,7 @@ namespace DVLD_BusinessLayer
         public enum enMode { AddNew=0, Update=1 };
         public enMode Mode = enMode.AddNew;
 
+
         public clsPeople()
         {
 

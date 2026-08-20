@@ -27,6 +27,7 @@ namespace DVLD
             if (!this.ValidateChildren())
             {
                 MessageBox.Show("Please correct the validation errors.");
+
                 return null;
             }
             else
@@ -42,7 +43,7 @@ namespace DVLD
                 Person.Email = txtEmail.Text;
                 Person.Phone = txtPhone.Text;
                 Person.DateOfBirth = dtpDateOfBirth.Value;
-                Person.NationalityCountryID = cbCountries.SelectedIndex;
+                Person.NationalityCountryID = cbCountries.SelectedIndex +1;
                 Person.Address = txtAddress.Text;
                 Person.ImagePath = _ImagePath;
                 return Person;
@@ -118,7 +119,7 @@ namespace DVLD
 
             cbCountries.DataSource = Countries.GetAllCountries();
             cbCountries.DisplayMember = "CountryName";
-
+            cbCountries.SelectedIndex=0; 
             rbMale.Checked = true;
 
             if (rbMale.Checked)
@@ -138,10 +139,7 @@ namespace DVLD
                    
                     return false;
                 }
-            }
-
-            
-
+            }                        
            return true;
 
         }
@@ -319,9 +317,7 @@ namespace DVLD
                 pictureBox1.Image = imageList1.Images[1];
             }
         }
-
-           
-
+            
         private void llSaveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -329,20 +325,21 @@ namespace DVLD
             openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
-        {
+            {
                 string ImagesFolder = @"C:\DVLD Images";
 
                 if (!Directory.Exists(ImagesFolder))
-            {   
+                {   
                 Directory.CreateDirectory(ImagesFolder);
-            }
+                }
+
             string FileName = Guid.NewGuid().ToString() + Path.GetExtension(openFileDialog.FileName);
             _ImagePath = Path.Combine(ImagesFolder, FileName);
             File.Copy(openFileDialog.FileName, _ImagePath);
 
             pictureBox1.ImageLocation = _ImagePath;
 
-        }
+            }
 
             llRemoveImage.Visible = true;
 
@@ -351,12 +348,11 @@ namespace DVLD
         private void llRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             pictureBox1.Image = imageList1.Images[0];
+            rbMale.Checked = true;
             llRemoveImage.Visible = false;
             _ImagePath = "";
         }
 
-       
-
-       
+        
     }
 }
