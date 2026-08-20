@@ -34,10 +34,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.lblPersonID = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.usPersonInfo1 = new DVLD.usPersonInfo();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,16 +77,6 @@
             this.lblPersonID.TabIndex = 4;
             this.lblPersonID.Text = "0";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DVLD.Properties.Resources.id_proof_black_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(203, 47);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(22, 22);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(228, 427);
@@ -114,6 +104,16 @@
             this.usPersonInfo1.Size = new System.Drawing.Size(804, 328);
             this.usPersonInfo1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DVLD.Properties.Resources.id_proof_black_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(203, 47);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(22, 22);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // Add_EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,6 +128,7 @@
             this.Controls.Add(this.usPersonInfo1);
             this.Name = "Add_EditForm";
             this.Text = "Add_EditForm";
+            this.Load += new System.EventHandler(this.Add_EditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -41,5 +41,10 @@ namespace DVLD
             DataBack?.Invoke(this);
 
         }
+
+        private void Add_EditForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

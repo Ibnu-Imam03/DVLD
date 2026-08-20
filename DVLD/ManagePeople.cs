@@ -77,8 +77,8 @@ namespace DVLD
         private void showDetailToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
-            ViewDetails frm = new ViewDetails(1039);
-            frm.ShowDialog();
+            //ViewDetails frm = new ViewDetails(dgvManage_);
+            //frm.ShowDialog();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -89,7 +89,8 @@ namespace DVLD
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            UpdatePeople frm = new UpdatePeople(1);
+            frm.ShowDialog();
         }
     }
 }

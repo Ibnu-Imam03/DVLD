@@ -17,6 +17,8 @@ namespace DVLD
 
         private string _ImagePath = "";
         private clsPeople Person = new clsPeople();
+        public enum enMode { Addnew=1 , Update=1};
+        public enMode Mode= enMode.Addnew;
 
         public delegate void DataEventHandeler(object sender, DataTable People);
         public event DataEventHandeler DataBack;
@@ -27,7 +29,6 @@ namespace DVLD
             if (!this.ValidateChildren())
             {
                 MessageBox.Show("Please correct the validation errors.");
-
                 return null;
             }
             else
@@ -37,9 +38,7 @@ namespace DVLD
                 Person.ThirdName = txtThirdName.Text;
                 Person.LastName = txtLastName.Text;
                 Person.NationalNo = txtNationalID.Text;
-
                 Person.Gendor = rbMale.Checked ? 0 : 1;
-
                 Person.Email = txtEmail.Text;
                 Person.Phone = txtPhone.Text;
                 Person.DateOfBirth = dtpDateOfBirth.Value;
@@ -48,14 +47,61 @@ namespace DVLD
                 Person.ImagePath = _ImagePath;
                 return Person;
             }
-            
-           
         }
-        public void LoadData(int PersonID)
+        public clsPeople UpdatePersonData(int PersonID)
         {
+            Mode = enMode.Update;
+
+            Person = clsPeople.Find(PersonID);
+
+            if (Person == null)
+            {
+                MessageBox.Show("Person not found.");
+                return null;
+            }
+            // Display person information
+            txtFirstName.Text = Person.FirstName;
+
+            txtSecoundName.Text = Person.SecondName;
+
+            txtThirdName.Text = Person.ThirdName;
+
+            txtLastName.Text = Person.LastName;
+
+            txtNationalID.Text = Person.NationalNo;
+
+            txtPhone.Text = Person.Phone;
+
+            txtEmail.Text = Person.Email;
+
+            txtAddress.Text = Person.Address;
+
+            // Display country
+            cbCountries.SelectedIndex = Person.NationalityCountryID;
+
+            // Display gender
+            if (Person.Gendor == 0)
+            {
+                rbMale.Checked = true;
+            }
+            else
+            {
+                rbFemale.Checked = true;
+            }
+
+            // Display image
+            if (!string.IsNullOrEmpty(Person.ImagePath))
+            {
+                pictureBox1.ImageLocation = Person.ImagePath;
+            }
+
+           return Person;
             
 
-                clsPeople Person = clsPeople.Find(PersonID);
+        }
+        public void DisplayPersonData(int PersonID)
+        {          
+                Person = clsPeople.Find(PersonID);
 
                 if (Person == null)
                 {
@@ -131,7 +177,7 @@ namespace DVLD
         {
             foreach (char c in Name)
             {
-                if (!char.IsLetter(c) && !char.IsWhiteSpace(c))
+                if (!char.IsLetter(c) && !char.IsWhiteSpace(c) && !char.IsPunctuation(c))
                 {
                    
                     return false;
@@ -232,7 +278,7 @@ namespace DVLD
                 e.Cancel = true;
                 errorProvider1.SetError(txtNationalID, "Please enter UniqueNational Number ");
             }
-            else if (clsPeople.IsNationalIDExist(txtNationalID.Text))
+            else if (clsPeople.IsNationalIDExist(txtNationalID.Text) && Mode==enMode.Addnew)
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtNationalID, "National Number already exists.");

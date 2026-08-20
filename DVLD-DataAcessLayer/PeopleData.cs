@@ -200,9 +200,9 @@ namespace DVLD_DataAcessLayer
         }
 
 
-        public static bool GetPeopleByPersonID(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName,
-    ref DateTime DateOfBirth, ref int Gendor, ref string Address, ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
-        {
+            public static bool GetPeopleByPersonID(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName,
+                          ref DateTime DateOfBirth, ref int Gendor, ref string Address, ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
+            {
             bool isFound = false;
 
             string query = "SELECT * FROM People WHERE PersonID = @PersonID";
@@ -251,9 +251,59 @@ namespace DVLD_DataAcessLayer
                 {
                     connection.Close();
                 }
+              }
+
+                 return isFound;
+             }
+
+            public static bool UpdatePerson(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName,
+                    DateTime DateOfBirth, int Gendor, string Address, string Phone, string Email, int NationalityCountryID, string ImagePath)
+        {
+
+            int rowsAffected = 0;
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
+            string query = "UPDATE People   " +
+                " SET  FirstName = @FirstName ,SecondName = @SecondName , ThirdName = @ThirdName ,LastName=@LastName,DateOfBirth=@DateOfBirth" +
+                "Gendor = @Gendor , Address = @Address , Phone=@Phone , Email = @Email , NationalityCountryID=@NationalityCountryID , ImagePath=@ImagePath" +
+                "Where  PersonID = @PersonID";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@FirstName", FirstName);
+            command.Parameters.AddWithValue("@SecondName", SecondName);
+            command.Parameters.AddWithValue("@ThirdName", ThirdName);
+            command.Parameters.AddWithValue("@LastName", LastName);
+            command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
+            command.Parameters.AddWithValue("@Gendor", Gendor);
+            command.Parameters.AddWithValue("@Address", Address);
+            command.Parameters.AddWithValue("@Phone", Phone);
+            command.Parameters.AddWithValue("@Email", Email);
+            command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
+            if (ImagePath != "" && ImagePath != null)
+                command.Parameters.AddWithValue("@ImagePath", ImagePath);
+            else
+                command.Parameters.AddWithValue("@ImagePath", System.DBNull.Value);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                return false;
             }
 
-            return isFound;
+            finally
+            {
+                connection.Close();
+            }
+
+            return (rowsAffected > 0);
         }
+
+            
+            
     }
 }

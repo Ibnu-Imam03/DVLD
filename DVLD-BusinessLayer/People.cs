@@ -8,7 +8,7 @@ namespace DVLD_BusinessLayer
     public class clsPeople
     {
 
-        public int PersonID {  get; set; } 
+        public int PersonID { get; set; }
         public string NationalNo { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
@@ -22,7 +22,7 @@ namespace DVLD_BusinessLayer
         public int NationalityCountryID { get; set; }
         public string ImagePath { get; set; }
 
-        public enum enMode { AddNew=0, Update=1 };
+        public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
 
 
@@ -31,8 +31,8 @@ namespace DVLD_BusinessLayer
 
         }
 
-        private clsPeople(int PersonID,  string NationalNo,  string FirstName,  string SecondName,  string ThirdName, 
-             string LastName,  DateTime DateOfBirth,  int Gendor,  string Address,  string Phone,  string Email,  int NationalityCountryID,  string ImagePath)
+        private clsPeople(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName,
+             string LastName, DateTime DateOfBirth, int Gendor, string Address, string Phone, string Email, int NationalityCountryID, string ImagePath)
         {
             this.PersonID = PersonID;
             this.NationalNo = NationalNo;
@@ -54,17 +54,17 @@ namespace DVLD_BusinessLayer
             return clsPeopleDataAcess.GetAllPeople();
         }
 
-        public static DataTable GetPerson(string Column , string Data)
+        public static DataTable GetPerson(string Column, string Data)
         {
-            return clsPeopleDataAcess.GetPeopleBy(Column , Data);
+            return clsPeopleDataAcess.GetPeopleBy(Column, Data);
         }
         public static DataTable GetPerson(string Column, int Data)
         {
             return clsPeopleDataAcess.GetPeopleBy(Column, Data);
         }
-        
-        
-        private  bool _AddNewPerson()
+
+
+        private bool _AddNewPerson()
         {
             this.PersonID = clsPeopleDataAcess.AddNewPerson(NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gendor,
                                                              Address, Phone, Email, NationalityCountryID, ImagePath);
@@ -83,13 +83,17 @@ namespace DVLD_BusinessLayer
                             Mode = enMode.Update;
                             return true;
                         }
-                        else 
-                        { 
+                        else
+                        {
                             return false;
-                        } 
+                        }
 
                     }
-                   
+                    case enMode.Update:
+                    {
+                        return _UpdatePerson();
+                    }
+
             }
             return false;
         }
@@ -113,7 +117,12 @@ namespace DVLD_BusinessLayer
             return null;
         }
 
+        private  bool _UpdatePerson()
+        {
+            return clsPeopleDataAcess.UpdatePerson(this.PersonID, this.NationalNo, this.FirstName, this.SecondName, this.ThirdName, this.LastName,
+                     this.DateOfBirth, this.Gendor, this.Address, this.Phone, this.Email, this.NationalityCountryID, this.ImagePath);
+
+        }
 
     }
-    
 }
