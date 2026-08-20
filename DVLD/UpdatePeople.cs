@@ -21,10 +21,10 @@ namespace DVLD
         clsPeople Person = new clsPeople();
         private void UpdatePeople_Load(object sender, EventArgs e)
         {
-            clsPeople Person = usPersonInfo1.UpdatePersonData(_ID);
+             Person = usPersonInfo1.UpdatePersonData(_ID);
+            txtPersonID.Text = Person.PersonID.ToString();
             
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             Person = usPersonInfo1.LoadPersonData();

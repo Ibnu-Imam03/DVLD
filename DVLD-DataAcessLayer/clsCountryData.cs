@@ -14,7 +14,7 @@ namespace DVLD_DataAcessLayer
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
-            string query = "SELECT CountryName FROM Countries";
+            string query = "SELECT CountryID, CountryName FROM Countries";
             SqlCommand command  = new SqlCommand(query, connection);
 
             try

@@ -95,8 +95,13 @@ namespace DVLD
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdatePeople frm = new UpdatePeople(1);
-            frm.ShowDialog();
+            if (dgvManage_People.SelectedRows.Count > 0)
+            {
+                int PersonID = Convert.ToInt32(dgvManage_People.SelectedRows[0].Cells["PersonID"].Value);
+                UpdatePeople frm = new UpdatePeople(PersonID);
+                frm.ShowDialog();
+            }
+          
         }
     }
 }

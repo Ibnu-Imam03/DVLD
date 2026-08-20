@@ -262,12 +262,13 @@ namespace DVLD_DataAcessLayer
 
             int rowsAffected = 0;
             SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
-            string query = "UPDATE People   " +
+            string query = "UPDATE People   " + "NationalNo = @NationalNo, " +
                 " SET  FirstName = @FirstName ,SecondName = @SecondName , ThirdName = @ThirdName ,LastName=@LastName,DateOfBirth=@DateOfBirth" +
-                "Gendor = @Gendor , Address = @Address , Phone=@Phone , Email = @Email , NationalityCountryID=@NationalityCountryID , ImagePath=@ImagePath" +
+                "Gendor = @Gendor , Address = @Address , Phone=@Phone , Email = @Email , NationalityCountryID=@NationalityCountryID , ImagePath=@ImagePath  " +
                 "Where  PersonID = @PersonID";
             SqlCommand command = new SqlCommand(query, connection);
-
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
             command.Parameters.AddWithValue("@FirstName", FirstName);
             command.Parameters.AddWithValue("@SecondName", SecondName);
             command.Parameters.AddWithValue("@ThirdName", ThirdName);

@@ -21,9 +21,8 @@ namespace DVLD_BusinessLayer
         public string Email { get; set; }
         public int NationalityCountryID { get; set; }
         public string ImagePath { get; set; }
-
         public enum enMode { AddNew = 0, Update = 1 };
-        public enMode Mode = enMode.AddNew;
+        public  enMode Mode = enMode.AddNew;
 
 
         public clsPeople()
@@ -47,6 +46,8 @@ namespace DVLD_BusinessLayer
             this.Email = Email;
             this.NationalityCountryID = NationalityCountryID;
             this.ImagePath = ImagePath;
+            Mode = enMode.Update;
+
         }
 
         public static DataTable GetAllPeoeple()
@@ -76,20 +77,20 @@ namespace DVLD_BusinessLayer
         {
             switch (Mode)
             {
-                //case enMode.AddNew:
-                //    {
-                //        if (_AddNewPerson())
-                //        {
-                //            Mode = enMode.Update;
-                //            return true;
-                //        }
-                //        else
-                //        {
-                //            return false;
-                //        }
+                case enMode.AddNew:
+                    {
+                        if (_AddNewPerson())
+                        {
+                            Mode = enMode.Update;
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
 
-                //    }
-                    case enMode.Update:
+                    }
+                case enMode.Update:
                     {
                         return _UpdatePerson();
                     }
@@ -112,6 +113,7 @@ namespace DVLD_BusinessLayer
             if (clsPeopleDataAcess.GetPeopleByPersonID(PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref DateOfBirth, ref Gendor, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref ImagePath))
             {
                 return new clsPeople(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gendor, Address, Phone, Email, NationalityCountryID, ImagePath);
+
             }
 
             return null;

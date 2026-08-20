@@ -13,17 +13,12 @@ namespace DVLD
             InitializeComponent();
             
         }
-       
-
         private string _ImagePath = "";
-        private clsPeople Person = new clsPeople();
+        private clsPeople _Person = new clsPeople();
         public enum enMode { Addnew=1 , Update=1};
-        public enMode Mode= enMode.Addnew;
-
+        public enMode Mode= enMode.Update;
         public delegate void DataEventHandeler(object sender, DataTable People);
         public event DataEventHandeler DataBack;
-
-
         public clsPeople LoadPersonData()
         {
             if (!this.ValidateChildren())
@@ -33,54 +28,53 @@ namespace DVLD
             }
             else
             {
-                Person.FirstName = txtFirstName.Text;
-                Person.SecondName = txtSecoundName.Text;
-                Person.ThirdName = txtThirdName.Text;
-                Person.LastName = txtLastName.Text;
-                Person.NationalNo = txtNationalID.Text;
-                Person.Gendor = rbMale.Checked ? 0 : 1;
-                Person.Email = txtEmail.Text;
-                Person.Phone = txtPhone.Text;
-                Person.DateOfBirth = dtpDateOfBirth.Value;
-                Person.NationalityCountryID = cbCountries.SelectedIndex +1;
-                Person.Address = txtAddress.Text;
-                Person.ImagePath = _ImagePath;
-                return Person;
+                _Person.FirstName = txtFirstName.Text;
+                _Person.SecondName = txtSecoundName.Text;
+                _Person.ThirdName = txtThirdName.Text;
+                _Person.LastName = txtLastName.Text;
+                _Person.NationalNo = txtNationalID.Text;
+                _Person.Gendor = rbMale.Checked ? 0 : 1;
+                _Person.Email = txtEmail.Text;
+                _Person.Phone = txtPhone.Text;
+                _Person.DateOfBirth = dtpDateOfBirth.Value;
+                _Person.NationalityCountryID = cbCountries.SelectedIndex +1;
+                _Person.Address = txtAddress.Text;
+                _Person.ImagePath = _ImagePath;
+                return _Person;
             }
         }
         public clsPeople UpdatePersonData(int PersonID)
         {
             Mode = enMode.Update;
 
-            Person = clsPeople.Find(PersonID);
+            _Person = clsPeople.Find(PersonID);
 
-            if (Person == null)
+            if (_Person == null)
             {
                 MessageBox.Show("Person not found.");
                 return null;
             }
             // Display person information
-            txtFirstName.Text = Person.FirstName;
+            txtFirstName.Text = _Person.FirstName;
 
-            txtSecoundName.Text = Person.SecondName;
+            txtSecoundName.Text = _Person.SecondName;
 
-            txtThirdName.Text = Person.ThirdName;
+            txtThirdName.Text = _Person.ThirdName;
 
-            txtLastName.Text = Person.LastName;
+            txtLastName.Text = _Person.LastName;
 
-            txtNationalID.Text = Person.NationalNo;
+            txtNationalID.Text = _Person.NationalNo;
 
-            txtPhone.Text = Person.Phone;
+            txtPhone.Text = _Person.Phone;
 
-            txtEmail.Text = Person.Email;
+            txtEmail.Text = _Person.Email;
 
-            txtAddress.Text = Person.Address;
+            txtAddress.Text = _Person.Address;
 
             // Display country
-            cbCountries.SelectedIndex = Person.NationalityCountryID;
-
+            cbCountries.SelectedValue = _Person.NationalityCountryID;
             // Display gender
-            if (Person.Gendor == 0)
+            if (_Person.Gendor == 0)
             {
                 rbMale.Checked = true;
             }
@@ -90,58 +84,58 @@ namespace DVLD
             }
 
             // Display image
-            if (!string.IsNullOrEmpty(Person.ImagePath))
+            if (!string.IsNullOrEmpty(_Person.ImagePath))
             {
-                pictureBox1.ImageLocation = Person.ImagePath;
+                pictureBox1.ImageLocation = _Person.ImagePath;
             }
 
-           return Person;
+           return _Person;
             
 
         }
         public void DisplayPersonData(int PersonID)
         {          
-                Person = clsPeople.Find(PersonID);
+                _Person = clsPeople.Find(PersonID);
 
-                if (Person == null)
+                if (_Person == null)
                 {
                     MessageBox.Show("Person not found.");
                     return;
                 }
 
                 // Display person information
-                txtFirstName.Text = Person.FirstName;
+                txtFirstName.Text = _Person.FirstName;
                 txtFirstName.ReadOnly = true;
 
-                txtSecoundName.Text = Person.SecondName;
+                txtSecoundName.Text = _Person.SecondName;
                 txtSecoundName.ReadOnly = true;
 
-                txtThirdName.Text = Person.ThirdName;
+                txtThirdName.Text = _Person.ThirdName;
                 txtThirdName.ReadOnly = true;
 
-                txtLastName.Text = Person.LastName;
+                txtLastName.Text = _Person.LastName;
                 txtLastName.ReadOnly = true;
 
-                txtNationalID.Text = Person.NationalNo;
+                txtNationalID.Text = _Person.NationalNo;
                 txtNationalID.ReadOnly = true;
 
-                txtPhone.Text = Person.Phone;
+                txtPhone.Text = _Person.Phone;
                 txtPhone.ReadOnly = true;
 
-                txtEmail.Text = Person.Email;
+                txtEmail.Text = _Person.Email;
                 txtEmail.ReadOnly = true;
 
-                txtAddress.Text = Person.Address;
+                txtAddress.Text = _Person.Address;
                 txtAddress.ReadOnly = true;
 
                 // Display country
-                cbCountries.SelectedIndex = Person.NationalityCountryID;
+                cbCountries.SelectedValue = _Person.NationalityCountryID;
                 cbCountries.Enabled = false;
-
+              
                 dtpDateOfBirth.Enabled = false;
 
                 // Display gender
-                if (Person.Gendor == 0)
+                if (_Person.Gendor == 0)
                 {
                     rbMale.Checked = true;
                 }
@@ -154,9 +148,9 @@ namespace DVLD
                 rbFemale.Enabled = false;
 
                 // Display image
-                if (!string.IsNullOrEmpty(Person.ImagePath))
+                if (!string.IsNullOrEmpty(_Person.ImagePath))
                 {
-                    pictureBox1.ImageLocation = Person.ImagePath;
+                    pictureBox1.ImageLocation = _Person.ImagePath;
                 }
 
                 // Hide image options
@@ -168,6 +162,7 @@ namespace DVLD
         {
                 cbCountries.DataSource = Countries.GetAllCountries();
                 cbCountries.DisplayMember = "CountryName";
+                cbCountries.ValueMember = "CountryID";
                 cbCountries.SelectedIndex = 0;
                 rbMale.Checked = true;
                 pictureBox1.Image = imageList1.Images[0];
@@ -280,11 +275,11 @@ namespace DVLD
                 e.Cancel = true;
                 errorProvider1.SetError(txtNationalID, "Please enter UniqueNational Number ");
             }
-            //else if (clsPeople.IsNationalIDExist(txtNationalID.Text) && Mode==enMode.Addnew)
-            //{
-            //    e.Cancel = true;
-            //    errorProvider1.SetError(txtNationalID, "National Number already exists.");
-            //}
+            else if ((clsPeople.IsNationalIDExist(txtNationalID.Text)) && (Mode == enMode.Addnew))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtNationalID, "National Number already exists.");
+            }
             else
             {
 
