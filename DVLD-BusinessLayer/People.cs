@@ -99,33 +99,21 @@ namespace DVLD_BusinessLayer
             return clsPeopleDataAcess.IsNationalIDExist(NID);
         }
 
-        public clsPeople Find(int PersonID)
+        public static clsPeople Find(int PersonID)
         {
-            string NationalNo = "";
-            string FirstName = "";
-            string SecondName = "";
-            string ThirdName = "";
-            string LastName = "";
+            string NationalNo = "", FirstName = "", SecondName = "", ThirdName = "", LastName = "", Address = "", Phone = "", Email = "", ImagePath = "";
             DateTime DateOfBirth = DateTime.Now;
-            int Gendor = 0;
-            string Address = "";
-            string Phone = "";
-            string Email = "";
-            int NationalityCountryID = -1;
-            string ImagePath = "";
+            int Gendor = 0, NationalityCountryID = -1;
 
-             if (clsPeopleDataAcess.GetPeopleByPersonID(PersonID, ref NationalNo, ref FirstName, ref SecondName,
-                ref ThirdName, ref LastName, ref DateOfBirth, ref Gendor, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref ImagePath))
+            if (clsPeopleDataAcess.GetPeopleByPersonID(PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref DateOfBirth, ref Gendor, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref ImagePath))
             {
-                return new  clsPeople(PersonID, NationalNo, FirstName, SecondName, ThirdName,
-              LastName, DateOfBirth, Gendor, Address, Phone, Email, NationalityCountryID, ImagePath);
-            }
-            else
-            {
-                return null;
+                return new clsPeople(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gendor, Address, Phone, Email, NationalityCountryID, ImagePath);
             }
 
-            
+            return null;
         }
+
+
     }
+    
 }

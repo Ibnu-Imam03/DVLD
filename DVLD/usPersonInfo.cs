@@ -8,13 +8,13 @@ namespace DVLD
 {
     public partial class usPersonInfo : UserControl
     {
-       
         public usPersonInfo()
         {
             InitializeComponent();
             
         }
-     
+       
+
         private string _ImagePath = "";
         private clsPeople Person = new clsPeople();
 
@@ -53,15 +53,17 @@ namespace DVLD
         }
         public void LoadData(int PersonID)
         {
-            clsPeople person = new clsPeople();
-            if (person.Find(PersonID) == null)
-            {
-                MessageBox.Show("WWWWWWWffffffffffffffffffffffWWWW");
-            }
-            else
-            {
+            
 
+                clsPeople Person = clsPeople.Find(PersonID);
 
+                if (Person == null)
+                {
+                    MessageBox.Show("Person not found.");
+                    return;
+                }
+
+                // Display person information
                 txtFirstName.Text = Person.FirstName;
                 txtFirstName.ReadOnly = true;
 
@@ -86,11 +88,11 @@ namespace DVLD
                 txtAddress.Text = Person.Address;
                 txtAddress.ReadOnly = true;
 
-                // Country
-                cbCountries.SelectedValue = Person.NationalityCountryID;
+                // Display country
+                cbCountries.SelectedIndex = Person.NationalityCountryID;
                 cbCountries.Enabled = false;
 
-                // Gender
+                // Display gender
                 if (Person.Gendor == 0)
                 {
                     rbMale.Checked = true;
@@ -103,7 +105,7 @@ namespace DVLD
                 rbMale.Enabled = false;
                 rbFemale.Enabled = false;
 
-                // Image
+                // Display image
                 if (!string.IsNullOrEmpty(Person.ImagePath))
                 {
                     pictureBox1.ImageLocation = Person.ImagePath;
@@ -112,24 +114,19 @@ namespace DVLD
                 // Hide image options
                 llRemoveImage.Visible = false;
                 llSaveImage.Visible = false;
-            }
+            
         }
         private void usPersonInfo_Load(object sender, System.EventArgs e)
         {
-
-            cbCountries.DataSource = Countries.GetAllCountries();
-            cbCountries.DisplayMember = "CountryName";
-            cbCountries.SelectedIndex=0; 
-            rbMale.Checked = true;
-
-            if (rbMale.Checked)
-            {
+                cbCountries.DataSource = Countries.GetAllCountries();
+                cbCountries.DisplayMember = "CountryName";
+                cbCountries.SelectedIndex = 0;
+                rbMale.Checked = true;
                 pictureBox1.Image = imageList1.Images[0];
-            }
-
-            llRemoveImage.Visible = false;
-        }     
-           
+                llRemoveImage.Visible = false;
+                
+                    
+        }
         private bool _ISValid(string Name)
         {
             foreach (char c in Name)

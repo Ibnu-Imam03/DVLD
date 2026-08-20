@@ -1,10 +1,10 @@
-﻿    using System;
-    using System.Data;
-    using System.Data.SqlClient;
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 
-    namespace DVLD_DataAcessLayer
+namespace DVLD_DataAcessLayer
     {
         public class clsPeopleDataAcess
 
@@ -111,8 +111,6 @@ using System.Windows.Forms;
             return TbPeople;
         }
 
-
-
             public static int AddNewPerson (string NationalNo , string FirstName , string SecondName , string ThirdName , string LastName , 
                     DateTime DateOfBirth , int Gendor , string Address , string Phone , string Email , int NationalityCountryID , string ImagePath)
         {
@@ -202,62 +200,60 @@ using System.Windows.Forms;
         }
 
 
-        public static bool GetPeopleByPersonID(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, 
-            ref DateTime DateOfBirth, ref int Gendor, ref string Address, ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
+        public static bool GetPeopleByPersonID(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName,
+    ref DateTime DateOfBirth, ref int Gendor, ref string Address, ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
         {
             bool isFound = false;
-            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
 
             string query = "SELECT * FROM People WHERE PersonID = @PersonID";
 
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-
-            try
+            using (SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
             {
-                connection.Open();
+                command.Parameters.AddWithValue("@PersonID", PersonID);
 
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
+                try
                 {
-                    isFound = true;
+                    connection.Open();
 
-                    NationalNo = (string)reader["NationalNo"];
-                    FirstName = (string)reader["FirstName"];
-                    SecondName = (string)reader["SecondName"];
-                    ThirdName = (string)reader["ThirdName"];
-                    LastName = (string)reader["LastName"];
-                    DateOfBirth = (DateTime)reader["DateOfBirth"];
-                    Gendor = (int)reader["Gendor"];
-                    Address = (string)reader["Address"];
-                    Phone = (string)reader["Phone"];
-                    Email = (string)reader["Email"];
-                    NationalityCountryID = (int)reader["NationalityCountryID"];
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            isFound = true;
 
-                    if (reader["ImagePath"] != DBNull.Value)
-                    {
-                        ImagePath = (string)reader["ImagePath"];
-                    }
-                    else
-                    {
-                        ImagePath = "";
+                            NationalNo = reader["NationalNo"] == DBNull.Value ? "" : reader["NationalNo"].ToString();
+                            FirstName = reader["FirstName"] == DBNull.Value ? "" : reader["FirstName"].ToString();
+                            SecondName = reader["SecondName"] == DBNull.Value ? "" : reader["SecondName"].ToString();
+                            ThirdName = reader["ThirdName"] == DBNull.Value ? "" : reader["ThirdName"].ToString();
+                            LastName = reader["LastName"] == DBNull.Value ? "" : reader["LastName"].ToString();
+
+                            DateOfBirth = (DateTime)reader["DateOfBirth"];
+                            Gendor = Convert.ToInt32(reader["Gendor"]);
+
+                            Address = reader["Address"] == DBNull.Value ? "" : reader["Address"].ToString();
+                            Phone = reader["Phone"] == DBNull.Value ? "" : reader["Phone"].ToString();
+                            Email = reader["Email"] == DBNull.Value ? "" : reader["Email"].ToString();
+
+                            NationalityCountryID = Convert.ToInt32(reader["NationalityCountryID"]);
+
+                            ImagePath = reader["ImagePath"] == DBNull.Value
+                                ? ""
+                                : reader["ImagePath"].ToString();
+                        }
                     }
                 }
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                connection.Close();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
 
             return isFound;
         }
-
     }
 }

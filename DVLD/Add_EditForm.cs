@@ -17,15 +17,8 @@ namespace DVLD
         {
             InitializeComponent();
         }
-        public delegate void DataEventHandeler(object sender, clsPeople People);
+        public delegate void DataEventHandeler(object sender);
         public event DataEventHandeler DataBack;
-
-        private void Add_EditForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-       
 
        
         private void btnCancel_Click(object sender, EventArgs e)
@@ -44,6 +37,8 @@ namespace DVLD
             }
             Person.Save();
             lblPersonID.Text = Person.PersonID.ToString();
+
+            DataBack?.Invoke(this);
 
         }
     }

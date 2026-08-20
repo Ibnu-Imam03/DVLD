@@ -38,11 +38,10 @@
             // 
             // usPersonInfo1
             // 
-            this.usPersonInfo1.Location = new System.Drawing.Point(37, 86);
+            this.usPersonInfo1.Location = new System.Drawing.Point(12, 90);
             this.usPersonInfo1.Name = "usPersonInfo1";
             this.usPersonInfo1.Size = new System.Drawing.Size(862, 361);
             this.usPersonInfo1.TabIndex = 0;
-            this.usPersonInfo1.Load += new System.EventHandler(this.usPersonInfo1_Load);
             // 
             // lblPersonData
             // 

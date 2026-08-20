@@ -128,7 +128,6 @@
             this.Controls.Add(this.usPersonInfo1);
             this.Name = "Add_EditForm";
             this.Text = "Add_EditForm";
-            this.Load += new System.EventHandler(this.Add_EditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
