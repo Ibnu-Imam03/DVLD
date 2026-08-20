@@ -262,8 +262,8 @@ namespace DVLD_DataAcessLayer
 
             int rowsAffected = 0;
             SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
-            string query = "UPDATE People   " + "NationalNo = @NationalNo, " +
-                " SET  FirstName = @FirstName ,SecondName = @SecondName , ThirdName = @ThirdName ,LastName=@LastName,DateOfBirth=@DateOfBirth" +
+            string query = "UPDATE People  SET " + "NationalNo = @NationalNo, " +
+                "   FirstName = @FirstName ,SecondName = @SecondName , ThirdName = @ThirdName ,LastName=@LastName,DateOfBirth=@DateOfBirth ," +
                 "Gendor = @Gendor , Address = @Address , Phone=@Phone , Email = @Email , NationalityCountryID=@NationalityCountryID , ImagePath=@ImagePath  " +
                 "Where  PersonID = @PersonID";
             SqlCommand command = new SqlCommand(query, connection);
@@ -305,6 +305,31 @@ namespace DVLD_DataAcessLayer
         }
 
             
+            public static bool DeletePerson(int PersonID)
+        {
+            int rowAffected = 0;
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
+            string query = "DELETE FROM People WHERE PersonID = @PersonID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+             try
+            {
+                connection.Open();
+                rowAffected = command.ExecuteNonQuery();
+
+            }catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return rowAffected > 0;
+
+        }
             
     }
 }

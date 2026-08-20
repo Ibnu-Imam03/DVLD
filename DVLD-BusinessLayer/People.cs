@@ -126,5 +126,10 @@ namespace DVLD_BusinessLayer
 
         }
 
+        public static bool DeletePerson(int PersonID)
+        {
+            return clsPeopleDataAcess.DeletePerson(PersonID);
+        }
+
     }
 }

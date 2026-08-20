@@ -3,7 +3,6 @@ using System;
 using System.Data;
 using System.IO;
 using System.Windows.Forms;
-
 namespace DVLD
 {
     public partial class usPersonInfo : UserControl
@@ -15,8 +14,8 @@ namespace DVLD
         }
         private string _ImagePath = "";
         private clsPeople _Person = new clsPeople();
-        public enum enMode { Addnew=1 , Update=1};
-        public enMode Mode= enMode.Update;
+        public enum enMode { Addnew=0 , Update=1};
+        public enMode Mode= enMode.Addnew;
         public delegate void DataEventHandeler(object sender, DataTable People);
         public event DataEventHandeler DataBack;
         public clsPeople LoadPersonData()
@@ -37,7 +36,7 @@ namespace DVLD
                 _Person.Email = txtEmail.Text;
                 _Person.Phone = txtPhone.Text;
                 _Person.DateOfBirth = dtpDateOfBirth.Value;
-                _Person.NationalityCountryID = cbCountries.SelectedIndex +1;
+                _Person.NationalityCountryID = Convert.ToInt32(cbCountries.SelectedValue);
                 _Person.Address = txtAddress.Text;
                 _Person.ImagePath = _ImagePath;
                 return _Person;
@@ -63,8 +62,10 @@ namespace DVLD
 
             txtLastName.Text = _Person.LastName;
 
+            dtpDateOfBirth.Value = _Person.DateOfBirth;
+            
             txtNationalID.Text = _Person.NationalNo;
-
+            txtNationalID.ReadOnly = true;
             txtPhone.Text = _Person.Phone;
 
             txtEmail.Text = _Person.Email;
@@ -82,8 +83,8 @@ namespace DVLD
             {
                 rbFemale.Checked = true;
             }
-
             // Display image
+            _ImagePath = _Person.ImagePath;
             if (!string.IsNullOrEmpty(_Person.ImagePath))
             {
                 pictureBox1.ImageLocation = _Person.ImagePath;
@@ -357,7 +358,7 @@ namespace DVLD
                 pictureBox1.Image = imageList1.Images[1];
             }
         }
-            
+
         private void llSaveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -369,22 +370,34 @@ namespace DVLD
                 string ImagesFolder = @"C:\DVLD Images";
 
                 if (!Directory.Exists(ImagesFolder))
-                {   
-                Directory.CreateDirectory(ImagesFolder);
+                {
+                    Directory.CreateDirectory(ImagesFolder);
                 }
 
-            string FileName = Guid.NewGuid().ToString() + Path.GetExtension(openFileDialog.FileName);
-            _ImagePath = Path.Combine(ImagesFolder, FileName);
-            File.Copy(openFileDialog.FileName, _ImagePath);
+                // Delete old image
+                if (Mode == enMode.Update &&
+                    !string.IsNullOrEmpty(_Person.ImagePath) &&
+                    File.Exists(_Person.ImagePath))
+                {
+                    File.Delete(_Person.ImagePath);
+                }
 
-            pictureBox1.ImageLocation = _ImagePath;
+                // Create new image path
+                string FileName = Guid.NewGuid().ToString() +
+                                  Path.GetExtension(openFileDialog.FileName);
 
+                _ImagePath = Path.Combine(ImagesFolder, FileName);
+
+                // Copy new image
+                File.Copy(openFileDialog.FileName, _ImagePath);
+
+                // Display new image
+                pictureBox1.ImageLocation = _ImagePath;
+
+                // Show remove option
+                llRemoveImage.Visible = true;
             }
-
-            llRemoveImage.Visible = true;
-
         }
-
         private void llRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             pictureBox1.Image = imageList1.Images[0];

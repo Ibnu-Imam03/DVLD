@@ -1,42 +1,63 @@
 ﻿using DVLD_BusinessLayer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 namespace DVLD
 {
     public partial class UpdatePeople : Form
     {
         private int _ID = -1;
+
         public UpdatePeople(int PersonID)
         {
             InitializeComponent();
-            _ID= PersonID;
+            _ID = PersonID;
         }
-        clsPeople Person = new clsPeople();
+
+        clsPeople Person;
+
         private void UpdatePeople_Load(object sender, EventArgs e)
         {
-             Person = usPersonInfo1.UpdatePersonData(_ID);
+            Person = usPersonInfo1.UpdatePersonData(_ID);
+
+            if (Person == null)
+            {
+                MessageBox.Show("Person not found.");
+                this.Close();
+                return;
+            }
+
             txtPersonID.Text = Person.PersonID.ToString();
-            
         }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             Person = usPersonInfo1.LoadPersonData();
+
             if (Person == null)
             {
                 return;
             }
-            Person.Save();
+
+            if (Person.Save())
+            {
+                MessageBox.Show("Person updated successfully.");
+            }
+            else
+            {
+                MessageBox.Show("Failed to update person.");
+            }
+
         }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void usPersonInfo1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

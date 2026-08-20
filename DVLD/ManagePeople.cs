@@ -103,6 +103,34 @@ namespace DVLD
             }
           
         }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvManage_People.SelectedRows.Count > 0)
+            {
+                int PersonID = Convert.ToInt32(
+                    dgvManage_People.SelectedRows[0].Cells["PersonID"].Value);
+
+                if (MessageBox.Show("Are you sure you want to delete this person?","Confirm Delete",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (clsPeople.DeletePerson(PersonID))
+                    {
+                        MessageBox.Show("Person deleted successfully.","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+                        // Refresh DataGridView
+                        dgvManage_People.DataSource = clsPeople.GetAllPeoeple();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Person was not deleted.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a person first.");
+            }
+        }
     }
 }
     
