@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace DVLD
 {
     public partial class UpdatePeople : Form
@@ -35,7 +34,6 @@ namespace DVLD
             }
             Person.Save();
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

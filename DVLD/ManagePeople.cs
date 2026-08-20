@@ -76,9 +76,15 @@ namespace DVLD
 
         private void showDetailToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            //ViewDetails frm = new ViewDetails(dgvManage_);
-            //frm.ShowDialog();
+
+            if (dgvManage_People.SelectedRows.Count > 0)
+            {
+                int PersonID = Convert.ToInt32(dgvManage_People.SelectedRows[0].Cells["PersonID"].Value);
+                ViewDetails frm = new ViewDetails(PersonID);
+                frm.ShowDialog();
+            }
+
+          
         }
 
         private void btnClose_Click(object sender, EventArgs e)

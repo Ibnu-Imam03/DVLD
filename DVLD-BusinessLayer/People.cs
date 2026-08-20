@@ -76,19 +76,19 @@ namespace DVLD_BusinessLayer
         {
             switch (Mode)
             {
-                case enMode.AddNew:
-                    {
-                        if (_AddNewPerson())
-                        {
-                            Mode = enMode.Update;
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
+                //case enMode.AddNew:
+                //    {
+                //        if (_AddNewPerson())
+                //        {
+                //            Mode = enMode.Update;
+                //            return true;
+                //        }
+                //        else
+                //        {
+                //            return false;
+                //        }
 
-                    }
+                //    }
                     case enMode.Update:
                     {
                         return _UpdatePerson();

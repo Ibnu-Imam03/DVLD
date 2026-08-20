@@ -138,6 +138,8 @@ namespace DVLD
                 cbCountries.SelectedIndex = Person.NationalityCountryID;
                 cbCountries.Enabled = false;
 
+                dtpDateOfBirth.Enabled = false;
+
                 // Display gender
                 if (Person.Gendor == 0)
                 {
@@ -278,11 +280,11 @@ namespace DVLD
                 e.Cancel = true;
                 errorProvider1.SetError(txtNationalID, "Please enter UniqueNational Number ");
             }
-            else if (clsPeople.IsNationalIDExist(txtNationalID.Text) && Mode==enMode.Addnew)
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtNationalID, "National Number already exists.");
-            }
+            //else if (clsPeople.IsNationalIDExist(txtNationalID.Text) && Mode==enMode.Addnew)
+            //{
+            //    e.Cancel = true;
+            //    errorProvider1.SetError(txtNationalID, "National Number already exists.");
+            //}
             else
             {
 

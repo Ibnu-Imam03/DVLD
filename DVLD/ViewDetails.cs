@@ -17,7 +17,7 @@ namespace DVLD
         {
             lblPersonID.Text = _PersonID.ToString();
 
-            usPersonInfo1.DisplayPersonData(1039);
+            usPersonInfo1.DisplayPersonData(_PersonID);
         }
     }
 }
