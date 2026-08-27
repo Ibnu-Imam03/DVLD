@@ -59,19 +59,20 @@ namespace DVLD
         private void PersonAdd_Click(object sender, EventArgs e)
         {
             frmAddEditPerson frm = new frmAddEditPerson();
+            frm.DataBack += GetFromPreviousAddEditForm;
             frm.ShowDialog();
         }
-        private void Add_EditForm_DataBack(object sender)
-        {
-            dgvManage_People.DataSource = clsPeople.GetAllPeoeple();
-        }
-
-
-
+        
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddEditPerson frm = new frmAddEditPerson();
+            frm.DataBack += GetFromPreviousAddEditForm;
             frm.ShowDialog();
+        }
+        public void GetFromPreviousAddEditForm(object sender, int PersonID)
+        {
+            dgvManage_People.DataSource = clsPeople.GetAllPeoeple();
+
         }
 
         private void showDetailToolStripMenuItem_Click(object sender, EventArgs e)
@@ -97,11 +98,11 @@ namespace DVLD
         {
             if (dgvManage_People.SelectedRows.Count > 0)
             {
-                int PersonID = Convert.ToInt32(dgvManage_People.SelectedRows[0].Cells["PersonID"].Value);
-                UpdatePeople frm = new UpdatePeople(PersonID);
+                int personID = Convert.ToInt32(dgvManage_People.SelectedRows[0].Cells["PersonID"].Value);
+                frmAddEditPerson frm = new frmAddEditPerson(personID);
+                frm.DataBack += GetFromPreviousAddEditForm;
                 frm.ShowDialog();
             }
-          
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)

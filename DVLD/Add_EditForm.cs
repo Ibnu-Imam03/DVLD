@@ -46,5 +46,10 @@ namespace DVLD
         {
 
         }
+
+        private void usPersonInfo1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

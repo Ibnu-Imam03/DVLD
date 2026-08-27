@@ -161,7 +161,7 @@ namespace DVLD
         }
         private void usPersonInfo_Load(object sender, System.EventArgs e)
         {
-                cbCountries.DataSource = Countries.GetAllCountries();
+                cbCountries.DataSource = clsCountries.GetAllCountries();
                 cbCountries.DisplayMember = "CountryName";
                 cbCountries.ValueMember = "CountryID";
                 cbCountries.SelectedIndex = 0;

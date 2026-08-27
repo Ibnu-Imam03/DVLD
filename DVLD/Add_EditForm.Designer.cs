@@ -103,6 +103,7 @@
             this.usPersonInfo1.Name = "usPersonInfo1";
             this.usPersonInfo1.Size = new System.Drawing.Size(804, 328);
             this.usPersonInfo1.TabIndex = 0;
+            this.usPersonInfo1.Load += new System.EventHandler(this.usPersonInfo1_Load);
             // 
             // pictureBox1
             // 

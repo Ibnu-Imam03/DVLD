@@ -27,7 +27,20 @@ namespace DVLD_BusinessLayer
 
         public clsPeople()
         {
-
+            this.PersonID = -1;
+            this.NationalNo = "";
+            this.FirstName = "";
+            this.SecondName = "";
+            this.ThirdName = "";
+            this.LastName = "";
+            this.DateOfBirth = DateTime.Now;
+            this.Gendor = 0;
+            this.Address = "";
+            this.Phone = "";
+            this.Email = "";
+            this.NationalityCountryID = -1;
+            this.ImagePath = "";
+            Mode = enMode.AddNew;
         }
 
         private clsPeople(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName,

@@ -47,7 +47,6 @@
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.llRemoveImage = new System.Windows.Forms.LinkLabel();
             this.llSaveImage = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -66,17 +65,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.object_1a191c62_8c10_4fde_8d46_05e09199a1fa = new System.Windows.Forms.ImageList(this.components);
             this.lblPersonID = new System.Windows.Forms.Label();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.lblAddNew = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.MyImages = new System.Windows.Forms.ImageList(this.components);
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -86,10 +85,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // cbCountries
@@ -246,6 +245,7 @@
             this.rbFemale.TabIndex = 99;
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = false;
+            this.rbFemale.CheckedChanged += new System.EventHandler(this.rbFemale_CheckedChanged);
             // 
             // pictureBox4
             // 
@@ -273,12 +273,13 @@
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = false;
+            this.rbMale.CheckedChanged += new System.EventHandler(this.rbMale_CheckedChanged);
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Aqua;
             this.pictureBox3.Image = global::DVLD.Properties.Resources.id_card1;
-            this.pictureBox3.Location = new System.Drawing.Point(106, 160);
+            this.pictureBox3.Location = new System.Drawing.Point(113, 153);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(31, 37);
@@ -290,17 +291,13 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Aqua;
             this.pictureBox2.Image = global::DVLD.Properties.Resources.profile__1_;
-            this.pictureBox2.Location = new System.Drawing.Point(106, 120);
+            this.pictureBox2.Location = new System.Drawing.Point(113, 114);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 37);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 95;
             this.pictureBox2.TabStop = false;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // llRemoveImage
             // 
@@ -314,6 +311,7 @@
             this.llRemoveImage.TabIndex = 94;
             this.llRemoveImage.TabStop = true;
             this.llRemoveImage.Text = "Remove Image ";
+            this.llRemoveImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llRemoveImage_LinkClicked);
             // 
             // llSaveImage
             // 
@@ -327,6 +325,7 @@
             this.llSaveImage.TabIndex = 93;
             this.llSaveImage.TabStop = true;
             this.llSaveImage.Text = "Save Image ";
+            this.llSaveImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llSaveImage_LinkClicked);
             // 
             // pictureBox1
             // 
@@ -348,6 +347,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(461, 80);
             this.txtAddress.TabIndex = 91;
+            this.txtAddress.Validating += new System.ComponentModel.CancelEventHandler(this.ValidatingEmptyTextBox);
             // 
             // label8
             // 
@@ -392,14 +392,16 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(139, 21);
             this.txtPhone.TabIndex = 87;
+            this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.ValidatingEmptyTextBox);
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(160, 243);
+            this.txtEmail.Location = new System.Drawing.Point(160, 250);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(136, 21);
             this.txtEmail.TabIndex = 86;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.TxtEmail_Validating);
             // 
             // txtNationalID
             // 
@@ -408,6 +410,7 @@
             this.txtNationalID.Name = "txtNationalID";
             this.txtNationalID.Size = new System.Drawing.Size(136, 21);
             this.txtNationalID.TabIndex = 85;
+            this.txtNationalID.Validating += new System.ComponentModel.CancelEventHandler(this.NationalNo_Validating);
             // 
             // txtLastName
             // 
@@ -416,6 +419,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(136, 21);
             this.txtLastName.TabIndex = 84;
+            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.ValidatingEmptyTextBox);
             // 
             // txtSecoundName
             // 
@@ -424,6 +428,7 @@
             this.txtSecoundName.Name = "txtSecoundName";
             this.txtSecoundName.Size = new System.Drawing.Size(136, 21);
             this.txtSecoundName.TabIndex = 83;
+            this.txtSecoundName.Validating += new System.ComponentModel.CancelEventHandler(this.ValidatingEmptyTextBox);
             // 
             // txtThirdName
             // 
@@ -432,6 +437,7 @@
             this.txtThirdName.Name = "txtThirdName";
             this.txtThirdName.Size = new System.Drawing.Size(136, 21);
             this.txtThirdName.TabIndex = 82;
+            this.txtThirdName.Validating += new System.ComponentModel.CancelEventHandler(this.ValidatingEmptyTextBox);
             // 
             // txtFirstName
             // 
@@ -441,6 +447,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(136, 21);
             this.txtFirstName.TabIndex = 81;
+            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.ValidatingEmptyTextBox);
             // 
             // label5
             // 
@@ -490,15 +497,6 @@
             this.label2.TabIndex = 77;
             this.label2.Text = "National No : ";
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "male.png");
-            this.imageList1.Images.SetKeyName(1, "female-worker.png");
-            this.imageList1.Images.SetKeyName(2, "diskette.png");
-            this.imageList1.Images.SetKeyName(3, "close.png");
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -521,13 +519,6 @@
             this.label13.Size = new System.Drawing.Size(51, 16);
             this.label13.TabIndex = 76;
             this.label13.Text = "Name : ";
-            // 
-            // object_1a191c62_8c10_4fde_8d46_05e09199a1fa
-            // 
-            this.object_1a191c62_8c10_4fde_8d46_05e09199a1fa.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("object_1a191c62_8c10_4fde_8d46_05e09199a1fa.ImageStream")));
-            this.object_1a191c62_8c10_4fde_8d46_05e09199a1fa.TransparentColor = System.Drawing.Color.Transparent;
-            this.object_1a191c62_8c10_4fde_8d46_05e09199a1fa.Images.SetKeyName(0, "diskette.png");
-            this.object_1a191c62_8c10_4fde_8d46_05e09199a1fa.Images.SetKeyName(1, "close.png");
             // 
             // lblPersonID
             // 
@@ -574,22 +565,62 @@
             // 
             this.btnSave.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(528, 385);
+            this.btnSave.ImageIndex = 9;
+            this.btnSave.ImageList = this.MyImages;
+            this.btnSave.Location = new System.Drawing.Point(525, 385);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(86, 34);
+            this.btnSave.Size = new System.Drawing.Size(89, 34);
             this.btnSave.TabIndex = 117;
             this.btnSave.Text = "Save";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // MyImages
+            // 
+            this.MyImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("MyImages.ImageStream")));
+            this.MyImages.TransparentColor = System.Drawing.Color.Transparent;
+            this.MyImages.Images.SetKeyName(0, "add-user.png");
+            this.MyImages.Images.SetKeyName(1, "add-user1.png");
+            this.MyImages.Images.SetKeyName(2, "application.png");
+            this.MyImages.Images.SetKeyName(3, "brush-pencil-icon.png");
+            this.MyImages.Images.SetKeyName(4, "calendar.png");
+            this.MyImages.Images.SetKeyName(5, "close.png");
+            this.MyImages.Images.SetKeyName(6, "country.png");
+            this.MyImages.Images.SetKeyName(7, "customer.png");
+            this.MyImages.Images.SetKeyName(8, "customer1.png");
+            this.MyImages.Images.SetKeyName(9, "diskette.png");
+            this.MyImages.Images.SetKeyName(10, "email.png");
+            this.MyImages.Images.SetKeyName(11, "female-worker.png");
+            this.MyImages.Images.SetKeyName(12, "id-card.png");
+            this.MyImages.Images.SetKeyName(13, "id-card1.png");
+            this.MyImages.Images.SetKeyName(14, "id-proof-black-icon.png");
+            this.MyImages.Images.SetKeyName(15, "list-square-bullet-icon.png");
+            this.MyImages.Images.SetKeyName(16, "location.png");
+            this.MyImages.Images.SetKeyName(17, "male.png");
+            this.MyImages.Images.SetKeyName(18, "phone-call.png");
+            this.MyImages.Images.SetKeyName(19, "phone-call-icon.png");
+            this.MyImages.Images.SetKeyName(20, "profile (1).png");
+            this.MyImages.Images.SetKeyName(21, "profile.png");
+            this.MyImages.Images.SetKeyName(22, "send-icon.png");
+            this.MyImages.Images.SetKeyName(23, "trash-can-black-icon.png");
+            this.MyImages.Images.SetKeyName(24, "user (1).png");
+            this.MyImages.Images.SetKeyName(25, "user.png");
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(421, 385);
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.ImageIndex = 5;
+            this.btnCancel.ImageList = this.MyImages;
+            this.btnCancel.Location = new System.Drawing.Point(408, 385);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(86, 34);
+            this.btnCancel.Size = new System.Drawing.Size(99, 34);
             this.btnCancel.TabIndex = 116;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panel1
             // 
@@ -600,6 +631,10 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(825, 346);
             this.panel1.TabIndex = 118;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmAddEditPerson
             // 
@@ -654,6 +689,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAddEditPerson";
             this.Text = "Add/Edit Person";
+            this.Load += new System.EventHandler(this.frmAddEditPerson_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -663,11 +699,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -692,7 +728,6 @@
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.LinkLabel llRemoveImage;
         private System.Windows.Forms.LinkLabel llSaveImage;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -712,9 +747,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ImageList object_1a191c62_8c10_4fde_8d46_05e09199a1fa;
         private System.Windows.Forms.Label lblPersonID;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Label label14;
@@ -722,5 +755,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ImageList MyImages;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
