@@ -8,7 +8,7 @@ using DVLD_DataAcessLayer;
 
 namespace DVLD_BusinessLayer
 {
-    public class Countries
+    public class clsCountries
     {
         public static DataTable GetAllCountries()
         {
