@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using DVLD.People;
 using DVLD_BusinessLayer;
 namespace DVLD
 {
@@ -57,9 +58,8 @@ namespace DVLD
         
         private void PersonAdd_Click(object sender, EventArgs e)
         {
-            Add_EditForm frm = new Add_EditForm();
-            frm.DataBack += Add_EditForm_DataBack;
-            frm.Show();
+            frmAddEditPerson frm = new frmAddEditPerson();
+            frm.ShowDialog();
         }
         private void Add_EditForm_DataBack(object sender)
         {
@@ -70,8 +70,8 @@ namespace DVLD
 
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Add_EditForm frm = new Add_EditForm();
-            frm.Show();
+            frmAddEditPerson frm = new frmAddEditPerson();
+            frm.ShowDialog();
         }
 
         private void showDetailToolStripMenuItem_Click(object sender, EventArgs e)
