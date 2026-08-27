@@ -15,7 +15,7 @@ namespace DVLD.People
         public frmAddEditPerson()
         {
             InitializeComponent();
-        }
+        } 
 
        
     }
