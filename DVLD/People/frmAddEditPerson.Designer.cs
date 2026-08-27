@@ -332,7 +332,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Aqua;
             this.pictureBox1.Image = global::DVLD.Properties.Resources.male;
-            this.pictureBox1.Location = new System.Drawing.Point(648, 157);
+            this.pictureBox1.Location = new System.Drawing.Point(636, 79);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(176, 130);
@@ -595,6 +595,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Aqua;
             this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(12, 86);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(825, 346);
@@ -631,7 +632,6 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.llRemoveImage);
             this.Controls.Add(this.llSaveImage);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
