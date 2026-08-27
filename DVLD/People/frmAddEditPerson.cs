@@ -15,7 +15,6 @@ namespace DVLD.People
 {
     public partial class frmAddEditPerson : Form
     {
-
         public delegate void DataBackEventHndler(object sender, int PersonID);
         public event DataBackEventHndler DataBack;
         public enum enMode { AddNew = 0, Update = 1 };
@@ -275,14 +274,14 @@ namespace DVLD.People
         }
         private void rbMale_CheckedChanged(object sender, EventArgs e)
         {
-            if (pictureBox1.ImageLocation == null)
+            if (rbMale.Checked && string.IsNullOrEmpty(pictureBox1.ImageLocation))
             {
                 pictureBox1.Image = Resources.male;
             }
         }
         private void rbFemale_CheckedChanged(object sender, EventArgs e)
         {
-            if (pictureBox1.ImageLocation == null)
+            if (rbFemale.Checked && string.IsNullOrEmpty(pictureBox1.ImageLocation))
             {
                 pictureBox1.Image = Resources.female_worker;
             }
