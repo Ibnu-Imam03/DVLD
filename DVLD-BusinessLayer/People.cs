@@ -21,6 +21,7 @@ namespace DVLD_BusinessLayer
         public string Email { get; set; }
         public int NationalityCountryID { get; set; }
         public string ImagePath { get; set; }
+        public string FullName { get { return FirstName +"   " + SecondName + "   "+ThirdName +"  "+ LastName; } }
         public enum enMode { AddNew = 0, Update = 1 };
         public  enMode Mode = enMode.AddNew;
 

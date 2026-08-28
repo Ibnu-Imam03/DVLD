@@ -196,11 +196,23 @@
     <Compile Include="PeopleManagment.Designer.cs">
       <DependentUpon>PeopleManagment.cs</DependentUpon>
     </Compile>
+    <Compile Include="People\controls\clsPersonCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\controls\clsPersonCard.Designer.cs">
+      <DependentUpon>clsPersonCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\frmAddEditPerson.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="People\frmAddEditPerson.Designer.cs">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmViewPersonInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmViewPersonInfo.Designer.cs">
+      <DependentUpon>frmViewPersonInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -222,8 +234,14 @@
     <EmbeddedResource Include="PeopleManagment.resx">
       <DependentUpon>PeopleManagment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="People\controls\clsPersonCard.resx">
+      <DependentUpon>clsPersonCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="People\frmAddEditPerson.resx">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmViewPersonInfo.resx">
+      <DependentUpon>frmViewPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -301,6 +319,7 @@
     <None Include="Resources\id-proof-black-icon.png" />
     <Content Include="Resources\list-square-bullet-icon.png" />
     <None Include="Resources\phone-call-icon.png" />
+    <None Include="Resources\male-and-female.png" />
     <Content Include="Resources\profile.png" />
     <None Include="Resources\trash-can-black-icon.png" />
     <None Include="Resources\send-icon.png" />

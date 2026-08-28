@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DVLD_DataAcessLayer
 {
@@ -35,6 +36,38 @@ namespace DVLD_DataAcessLayer
 
             return dt;
 
+        }
+
+        public static string GetCountryName( int CountryID)
+        {
+            string CountryName = "[????]";
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
+
+            string query = "SELECT CountryName FROM Countries WHERE CountryID = @CountryID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@CountryID", CountryID);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                {
+                    CountryName = result.ToString();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return CountryName;
         }
     }
 }
