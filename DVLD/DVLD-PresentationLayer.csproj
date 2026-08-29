@@ -214,6 +214,12 @@
     <Compile Include="People\frmAddEditPerson.Designer.cs">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="People\frmFindPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmFindPerson.Designer.cs">
+      <DependentUpon>frmFindPerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\frmViewPersonInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmAddEditPerson.resx">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmFindPerson.resx">
+      <DependentUpon>frmFindPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmViewPersonInfo.resx">
       <DependentUpon>frmViewPersonInfo.cs</DependentUpon>
