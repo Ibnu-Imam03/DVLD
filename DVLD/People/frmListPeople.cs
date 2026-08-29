@@ -33,7 +33,7 @@ namespace DVLD
 
 
         }
-             
+
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
 
@@ -55,14 +55,14 @@ namespace DVLD
 
         }
 
-        
+
         private void PersonAdd_Click(object sender, EventArgs e)
         {
             frmAddEditPerson frm = new frmAddEditPerson();
             frm.DataBack += GetFromPreviousAddEditForm;
             frm.ShowDialog();
         }
-        
+
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddEditPerson frm = new frmAddEditPerson();
@@ -85,7 +85,7 @@ namespace DVLD
                 frm.ShowDialog();
             }
 
-          
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -112,18 +112,18 @@ namespace DVLD
                 int PersonID = Convert.ToInt32(
                     dgvManage_People.SelectedRows[0].Cells["PersonID"].Value);
 
-                if (MessageBox.Show("Are you sure you want to delete this person?","Confirm Delete",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to delete this person?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     if (clsPeople.DeletePerson(PersonID))
                     {
-                        MessageBox.Show("Person deleted successfully.","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        MessageBox.Show("Person deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Refresh DataGridView
                         dgvManage_People.DataSource = clsPeople.GetAllPeoeple();
                     }
                     else
                     {
-                        MessageBox.Show("Person was not deleted.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show("Person was not deleted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -135,7 +135,16 @@ namespace DVLD
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbFilter.SelectedItem.ToString() == "None")
+            {
+                txtFilter.Visible = false;
 
+                dgvManage_People.DataSource = clsPeople.GetAllPeoeple();
+            }
+            else
+            {
+                txtFilter.Visible = true;
+            }
         }
     }
 }
