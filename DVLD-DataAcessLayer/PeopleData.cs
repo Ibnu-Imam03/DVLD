@@ -41,9 +41,7 @@ namespace DVLD_DataAcessLayer
                 return TbPeople;
 
             }
-
-
-            public static DataTable GetPeopleBy(string Column , string Name)
+            public static DataTable GetPeopleBy(string Column , string Name= "NationalNo")
         {
             DataTable TbPeople = new DataTable();
             SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
@@ -76,7 +74,6 @@ namespace DVLD_DataAcessLayer
 
             return TbPeople;
         }
-
             public static DataTable GetPeopleBy(string Column, int Name)
         {
             DataTable TbPeople = new DataTable();
@@ -110,7 +107,6 @@ namespace DVLD_DataAcessLayer
 
             return TbPeople;
         }
-
             public static int AddNewPerson (string NationalNo , string FirstName , string SecondName , string ThirdName , string LastName , 
                     DateTime DateOfBirth , int Gendor , string Address , string Phone , string Email , int NationalityCountryID , string ImagePath)
         {
@@ -165,8 +161,6 @@ namespace DVLD_DataAcessLayer
             return PersonID;
 
         }
-
-
             public static bool IsNationalIDExist(string NationalNo)
         {
             bool IsFound = false;
@@ -198,8 +192,6 @@ namespace DVLD_DataAcessLayer
             }
             return IsFound;
         }
-
-
             public static bool GetPeopleByPersonID(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName,
                           ref DateTime DateOfBirth, ref int Gendor, ref string Address, ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
             {
@@ -256,7 +248,62 @@ namespace DVLD_DataAcessLayer
                  return isFound;
              }
 
-            public static bool UpdatePerson(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName,
+        public static bool GetPeopleByPersonID(ref int PersonID,  string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName,
+                         ref DateTime DateOfBirth, ref int Gendor, ref string Address, ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
+        {
+            bool isFound = false;
+
+            string query = "SELECT * FROM People WHERE NationalNo = @NationalNo";
+
+            using (SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+                try
+                {
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            isFound = true;
+
+                            PersonID = reader["PersonID"] == DBNull.Value ? -1 : Convert.ToInt32(reader["PersonID"]);
+                            FirstName = reader["FirstName"] == DBNull.Value ? "" : reader["FirstName"].ToString();
+                            SecondName = reader["SecondName"] == DBNull.Value ? "" : reader["SecondName"].ToString();
+                            ThirdName = reader["ThirdName"] == DBNull.Value ? "" : reader["ThirdName"].ToString();
+                            LastName = reader["LastName"] == DBNull.Value ? "" : reader["LastName"].ToString();
+
+                            DateOfBirth = (DateTime)reader["DateOfBirth"];
+                            Gendor = Convert.ToInt32(reader["Gendor"]);
+
+                            Address = reader["Address"] == DBNull.Value ? "" : reader["Address"].ToString();
+                            Phone = reader["Phone"] == DBNull.Value ? "" : reader["Phone"].ToString();
+                            Email = reader["Email"] == DBNull.Value ? "" : reader["Email"].ToString();
+
+                            NationalityCountryID = Convert.ToInt32(reader["NationalityCountryID"]);
+
+                            ImagePath = reader["ImagePath"] == DBNull.Value
+                                ? ""
+                                : reader["ImagePath"].ToString();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+
+            return isFound;
+        }
+        public static bool UpdatePerson(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName,
                     DateTime DateOfBirth, int Gendor, string Address, string Phone, string Email, int NationalityCountryID, string ImagePath)
         {
 
@@ -302,9 +349,7 @@ namespace DVLD_DataAcessLayer
             }
 
             return (rowsAffected > 0);
-        }
-
-            
+        }     
             public static bool DeletePerson(int PersonID)
         {
             int rowAffected = 0;

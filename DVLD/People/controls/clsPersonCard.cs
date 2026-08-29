@@ -43,7 +43,7 @@ namespace DVLD.People.controls
             lblGender.Text = _Person.Gendor == 0 ? "Male" : "Female" ;
             lblEmail.Text = _Person.Email;
             lblAddress.Text = _Person.Address;
-            lblDateofBirth.Text = _Person.DateOfBirth.ToString();
+            lblDateofBirth.Text = _Person.DateOfBirth.ToString("dd/MM/yyyy");
             lblPhone.Text = _Person.Phone;
             lblCountry.Text = clsCountries.GetCountryName(_Person.NationalityCountryID);
             if (!string.IsNullOrEmpty(_Person.ImagePath))
@@ -88,11 +88,25 @@ namespace DVLD.People.controls
             }
             _FillPersonInfo();
         }
+        public void LoadPersonInfo(string NationalNo)
+        {
+            _Person = clsPeople.Find(NationalNo);
+            if (_Person == null)
+            {
+                ResetPersonInfo();
+                return;
+            }
+            _FillPersonInfo();
+        }
         private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmAddEditPerson frm = new frmAddEditPerson(_PersonID);
             frm.ShowDialog();
             LoadPersonInfo(_PersonID);
+        }
+        private void clsPersonCard_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

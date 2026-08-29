@@ -132,6 +132,20 @@ namespace DVLD_BusinessLayer
 
             return null;
         }
+        public static clsPeople Find(string NationalNo)
+        {
+            int PersonID = -1; string FirstName = "", SecondName = "", ThirdName = "", LastName = "", Address = "", Phone = "", Email = "", ImagePath = "";
+            DateTime DateOfBirth = DateTime.Now;
+            int Gendor = 0, NationalityCountryID = -1;
+
+            if (clsPeopleDataAcess.GetPeopleByPersonID(ref PersonID,  NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref DateOfBirth, ref Gendor, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref ImagePath))
+            {
+                return new clsPeople(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gendor, Address, Phone, Email, NationalityCountryID, ImagePath);
+
+            }
+
+            return null;
+        }
 
         private  bool _UpdatePerson()
         {

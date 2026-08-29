@@ -37,7 +37,8 @@ namespace DVLD
 
         private void btnDriver_Click(object sender, EventArgs e)
         {
-
+            ViewDetails frm = new ViewDetails(1);
+            frm.Show();
         }
 
         private void btnUsers_Click(object sender, EventArgs e)

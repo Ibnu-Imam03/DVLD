@@ -132,6 +132,11 @@ namespace DVLD
                 MessageBox.Show("Please select a person first.");
             }
         }
+
+        private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
     

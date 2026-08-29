@@ -202,6 +202,12 @@
     <Compile Include="People\controls\clsPersonCard.Designer.cs">
       <DependentUpon>clsPersonCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="People\controls\clsPersonCardWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\controls\clsPersonCardWithFilter.Designer.cs">
+      <DependentUpon>clsPersonCardWithFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\frmAddEditPerson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="People\controls\clsPersonCard.resx">
       <DependentUpon>clsPersonCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\controls\clsPersonCardWithFilter.resx">
+      <DependentUpon>clsPersonCardWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmAddEditPerson.resx">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
@@ -320,6 +329,8 @@
     <Content Include="Resources\list-square-bullet-icon.png" />
     <None Include="Resources\phone-call-icon.png" />
     <None Include="Resources\male-and-female.png" />
+    <Content Include="Resources\person-search-icon-size_24.png" />
+    <None Include="Resources\person-search-icon-size_241.png" />
     <Content Include="Resources\profile.png" />
     <None Include="Resources\trash-can-black-icon.png" />
     <None Include="Resources\send-icon.png" />

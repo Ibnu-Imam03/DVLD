@@ -15,9 +15,7 @@ namespace DVLD
 
         private void ViewDetails_Load(object sender, EventArgs e)
         {
-            lblPersonID.Text = _PersonID.ToString();
 
-            usPersonInfo1.DisplayPersonData(_PersonID);
         }
     }
 }
