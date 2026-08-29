@@ -220,11 +220,11 @@
     <Compile Include="People\frmFindPerson.Designer.cs">
       <DependentUpon>frmFindPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\frmViewPersonInfo.cs">
+    <Compile Include="People\frmShowPersonInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="People\frmViewPersonInfo.Designer.cs">
-      <DependentUpon>frmViewPersonInfo.cs</DependentUpon>
+    <Compile Include="People\frmShowPersonInfo.Designer.cs">
+      <DependentUpon>frmShowPersonInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -258,8 +258,8 @@
     <EmbeddedResource Include="People\frmFindPerson.resx">
       <DependentUpon>frmFindPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\frmViewPersonInfo.resx">
-      <DependentUpon>frmViewPersonInfo.cs</DependentUpon>
+    <EmbeddedResource Include="People\frmShowPersonInfo.resx">
+      <DependentUpon>frmShowPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -325,6 +325,7 @@
     <None Include="Resources\add-user1.png" />
     <None Include="Resources\brush-pencil-icon.png" />
     <Content Include="Resources\close.png" />
+    <None Include="Resources\close1.png" />
     <Content Include="Resources\customer.png" />
     <None Include="Resources\location.png" />
     <None Include="Resources\email.png" />
