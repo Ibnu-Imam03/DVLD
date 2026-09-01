@@ -1,6 +1,6 @@
 ﻿namespace DVLD
 {
-    partial class PeopleManagment
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -29,15 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PeopleManagment));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnApplication = new System.Windows.Forms.Button();
             this.btnAccountSettings = new System.Windows.Forms.Button();
             this.btnPeople = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnDriver = new System.Windows.Forms.Button();
+            this.currentUserInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList1
@@ -64,6 +69,27 @@
             this.panel1.Size = new System.Drawing.Size(901, 44);
             this.panel1.TabIndex = 5;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.currentUserInfoToolStripMenuItem,
+            this.changePasswordToolStripMenuItem,
+            this.signOutToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(169, 70);
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.changePasswordToolStripMenuItem.Text = "Change Password";
+            // 
+            // signOutToolStripMenuItem
+            // 
+            this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.signOutToolStripMenuItem.Text = "Sign Out";
+            // 
             // btnApplication
             // 
             this.btnApplication.AutoSize = true;
@@ -88,7 +114,6 @@
             this.btnApplication.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnApplication.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnApplication.UseVisualStyleBackColor = false;
-            this.btnApplication.Click += new System.EventHandler(this.btnApplication_Click);
             // 
             // btnAccountSettings
             // 
@@ -114,7 +139,6 @@
             this.btnAccountSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAccountSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAccountSettings.UseVisualStyleBackColor = false;
-            this.btnAccountSettings.Click += new System.EventHandler(this.btnAccountSettings_Click);
             // 
             // btnPeople
             // 
@@ -166,7 +190,6 @@
             this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUsers.UseVisualStyleBackColor = false;
-            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // btnDriver
             // 
@@ -194,18 +217,25 @@
             this.btnDriver.UseVisualStyleBackColor = false;
             this.btnDriver.Click += new System.EventHandler(this.btnDriver_Click);
             // 
-            // PeopleManagment
+            // currentUserInfoToolStripMenuItem
+            // 
+            this.currentUserInfoToolStripMenuItem.Image = global::DVLD.Properties.Resources.PersonDetails_323;
+            this.currentUserInfoToolStripMenuItem.Name = "currentUserInfoToolStripMenuItem";
+            this.currentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.currentUserInfoToolStripMenuItem.Text = "Current User Info";
+            // 
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Turquoise;
             this.ClientSize = new System.Drawing.Size(901, 461);
             this.Controls.Add(this.panel1);
-            this.Name = "PeopleManagment";
+            this.Name = "frmMain";
             this.Text = "PeopleManagment";
-            this.Load += new System.EventHandler(this.PeopleManagment_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -219,5 +249,9 @@
         private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.Button btnAccountSettings;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem currentUserInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
     }
 }

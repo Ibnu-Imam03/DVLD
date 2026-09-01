@@ -75,7 +75,7 @@ namespace DVLD_DataAcessLayer
         {
             bool isFound = false;
             SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
-            string query = "SELECT * FROM USERS WHERE UserName = @UserName , Password =@Password";
+            string query = "SELECT * FROM USERS WHERE UserName = @UserName AND Password =@Password";
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@Password", Password);
@@ -94,9 +94,21 @@ namespace DVLD_DataAcessLayer
                     UserName = (string)Reader["UserName"];
                     Password = (string)Reader["Password"];
                     IsActive = (bool)Reader["IsActive"];
-
                 }
+                else
+                {
+                    isFound = false;
+                }
+                Reader.Close();
+            }catch (Exception ex)
+            {
+                isFound = false;
             }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
         }
 
     }

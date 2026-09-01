@@ -172,6 +172,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsGlobal.cs" />
     <Compile Include="clsValidations.cs" />
     <Compile Include="DVLDDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -195,11 +196,11 @@
     <Compile Include="People\frmListPeople.Designer.cs">
       <DependentUpon>frmListPeople.cs</DependentUpon>
     </Compile>
-    <Compile Include="PeopleManagment.cs">
+    <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PeopleManagment.Designer.cs">
-      <DependentUpon>PeopleManagment.cs</DependentUpon>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="People\controls\clsPersonCard.cs">
       <SubType>UserControl</SubType>
@@ -251,8 +252,8 @@
     <EmbeddedResource Include="People\frmListPeople.resx">
       <DependentUpon>frmListPeople.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PeopleManagment.resx">
-      <DependentUpon>PeopleManagment.cs</DependentUpon>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\controls\clsPersonCard.resx">
       <DependentUpon>clsPersonCard.cs</DependentUpon>
@@ -351,6 +352,9 @@
     <None Include="Resources\male-and-female.png" />
     <Content Include="Resources\person-search-icon-size_24.png" />
     <None Include="Resources\person-search-icon-size_241.png" />
+    <None Include="Resources\PersonDetails 321.png" />
+    <None Include="Resources\PersonDetails 322.png" />
+    <None Include="Resources\PersonDetails 323.png" />
     <Content Include="Resources\profile.png" />
     <None Include="Resources\trash-can-black-icon.png" />
     <None Include="Resources\send-icon.png" />

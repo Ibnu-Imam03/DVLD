@@ -24,66 +24,53 @@ namespace DVLD.Login
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void UserName_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtUserName.Text))
+            string UserName = "", Password = "";
+            if (clsGlobal.GetStoredCredential(ref UserName,ref Password))
             {
-                errorProvider1.SetError(txtUserName, "Please enter a username.");
-                e.Cancel = true;
+                txtUserName.Text = UserName;
+                txtPassword.Text = Password;
+                chkRememberMe.Checked = true;
             }
             else
             {
-                errorProvider1.SetError(txtUserName, string.Empty);
-                e.Cancel = false;
+                chkRememberMe.Checked = false;
             }
-        }
-
-        private void Password_Validating(object sender, CancelEventArgs e)
-        {
-
-
-            if (string.IsNullOrWhiteSpace(txtPassword.Text))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtPassword, "Password is required.");
-                return;
-            }
-            else
-            {
-                errorProvider1.SetError(txtPassword, string.Empty);
-                e.Cancel = false;
-            }
-
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (!this.ValidateChildren())
-            {
-                MessageBox.Show("Fill The Field is required !!", "ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
-            }
+            clsUser User = clsUser.FindByUserNameAndPassword(txtUserName.Text, txtPassword.Text);
 
-            if (clsUser.IsExisted(txtUserName.Text, txtPassword.Text))
+            if (User != null)
             {
-                if (clsUser.IsActive(txtUserName.Text))
+
+                if (chkRememberMe.Checked)
                 {
-                    PeopleManagment frm = new PeopleManagment();
-                    frm.ShowDialog();
+                    clsGlobal.RememberUsernameAndPassword(txtUserName.Text, txtPassword.Text);
                 }
                 else
                 {
-                    MessageBox.Show("Your account is inactive.",
-                        "Login Failed",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    clsGlobal.RememberUsernameAndPassword("", "");
                 }
+
+
+                if (!User.IsActive)
+                {
+                    txtUserName.Focus();
+                    MessageBox.Show("Your account is inactive.","Login Failed",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
+                }
+
+                clsGlobal.CurrentUser = User;
+                this.Hide();
+                frmMain frm = new frmMain(this);
+                frm.ShowDialog();
+
+
             }
             else
             {
+                txtUserName.Focus();
                 MessageBox.Show("Invalid username or password.",
                     "Login Failed",
                     MessageBoxButtons.OK,

@@ -7,27 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DVLD.Login;
 using DVLD_BusinessLayer;
 namespace DVLD
 {
-    public partial class PeopleManagment : Form
+    public partial class frmMain : Form
     {
-        public PeopleManagment()
+        frmLogin _frmLogin;
+        public frmMain(frmLogin frm)
         {
             InitializeComponent();
+            _frmLogin = frm;
         }
 
-       
-
-        private void PeopleManagment_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnApplication_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnPeople_Click(object sender, EventArgs e)
         {
@@ -41,14 +33,6 @@ namespace DVLD
             frm.Show();
         }
 
-        private void btnUsers_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAccountSettings_Click(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }
