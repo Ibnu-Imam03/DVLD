@@ -106,7 +106,9 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
     </Reference>
@@ -184,6 +186,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DVLDDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Login\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\frmListPeople.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +248,9 @@
     <Compile Include="ViewDetails.Designer.cs">
       <DependentUpon>ViewDetails.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Login\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="People\frmListPeople.resx">
       <DependentUpon>frmListPeople.cs</DependentUpon>
     </EmbeddedResource>
@@ -324,6 +335,8 @@
     <None Include="Resources\calendar.png" />
     <None Include="Resources\add-user1.png" />
     <None Include="Resources\brush-pencil-icon.png" />
+    <None Include="Resources\Cars 481.png" />
+    <None Include="Resources\Cars 482.png" />
     <Content Include="Resources\close.png" />
     <None Include="Resources\close1.png" />
     <Content Include="Resources\customer.png" />

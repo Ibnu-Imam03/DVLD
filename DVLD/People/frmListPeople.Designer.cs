@@ -68,6 +68,9 @@
             this.dgvManage_People.AllowUserToAddRows = false;
             this.dgvManage_People.AllowUserToDeleteRows = false;
             this.dgvManage_People.AllowUserToOrderColumns = true;
+            this.dgvManage_People.BackgroundColor = System.Drawing.Color.Aqua;
+            this.dgvManage_People.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvManage_People.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvManage_People.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvManage_People.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvManage_People.Location = new System.Drawing.Point(12, 175);
@@ -235,6 +238,7 @@
             // 
             // ManagePeople
             // 
+            this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(962, 404);
             this.Controls.Add(this.txtFilter);
             this.Controls.Add(this.btnClose);
